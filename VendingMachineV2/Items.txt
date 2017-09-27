@@ -1,0 +1,12 @@
+SNIC05::Snickers::2017-02-01::250 calories (110 calories from fat)
+OREO03::Oreos::2017-01-15::160 calories
+OREO04::Oreos::2017-09-28::160 calories
+BUTT03::Butterfinger::2017-08-01::180 calories
+BUTT04::Butterfinger::2017-04-18::180 calories
+BUTT05::Butterfinger::2017-02-17::180 calories
+RICE02::Rice Crispy Treats::2017-07-11::120 calories
+RICE03::Rice Crispy Treats::2017-09-26::120 calories
+RICE04::Rice Crispy Treats::2017-09-26::120 calories
+DORI02::Doritos::2017-11-25::140 calories
+DORI03::Doritos::2017-06-14::140 calories
+DORI04::Doritos::2017-09-18::140 calories

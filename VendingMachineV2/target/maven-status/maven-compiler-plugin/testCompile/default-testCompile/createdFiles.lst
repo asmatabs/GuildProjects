@@ -1,0 +1,3 @@
+com\sg\vendingmachine\dao\ItemsDaoTest.class
+com\sg\vendingmachine\dao\ItemsDaoStubImpl.class
+com\sg\vendingmachine\service\VendingMachineTest.class

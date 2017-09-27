@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.logging.Level;
@@ -25,20 +26,21 @@ import java.util.stream.IntStream;
 public class StudentInfo {
 
     int[] scores;
-    HashMap<String, int[]> quizScores;
+    Map<String, int[]> quizScores;
     UserIO io = new UserIOImpl();
     public final int SUBJECTS = 5;
 
-    public StudentInfo()
-    {
-       quizScores = new HashMap<>(); 
-       io = new UserIOImpl();
-       scores = new int[5];
+    public StudentInfo() {
+        quizScores = new HashMap<>();
+        io = new UserIOImpl();
+        scores = new int[5];
     }
+
     public void listStudents() {
         Set<String> students = quizScores.keySet();
+        io.print("Student List:");
         for (String s : students) {
-            io.print("Student Name: " + s);
+            io.print(s);
         }
     }
 
@@ -78,22 +80,21 @@ public class StudentInfo {
     public void loadData() throws FileNotFoundException {
         Scanner sc = new Scanner(
                 new BufferedReader(new FileReader("OutFile.txt")));
-        System.out.println("Opening file to load data...");
         // go through the file line by line
         while (sc.hasNextLine()) {
-            System.out.println("Found a record to load");
             String currentLine = sc.nextLine();
-            
+
             String delim = "::";
             String[] split = currentLine.split(delim);
             System.out.println(split[0]);
             String studentName = split[0];
             int[] scores = new int[5];
-            for (int i = 1; i < split.length; i++)
-            {
-                scores[i-1] = Integer.valueOf(split[i]);
+            for (int i = 1; i < split.length; i++) {
+                scores[i - 1] = Integer.valueOf(split[i]);
             }
-            quizScores.put(studentName, scores);
+            if (!studentName.isEmpty()) {
+                quizScores.put(studentName, scores);
+            }
         }
     }
 
@@ -110,9 +111,7 @@ public class StudentInfo {
                     out.print("::" + scores[i]);
                 }
                 out.println();
-                // out.print(quizScores.get(s));
             }
-
             out.flush();
             out.close();
         } catch (IOException ex) {

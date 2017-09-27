@@ -1,0 +1,57 @@
+2017-09-22T09:01:23.871 : addOrder: com.sg.fancyfloors.model.OrderRequest@7b98f307	
+2017-09-22T09:27:33.495 : addOrder: com.sg.fancyfloors.model.OrderRequest@c730b35	
+2017-09-22T09:33:14.113 : addOrder: OrderRequest{customerName=Asma Hamza, productType=Carpet, state=PA, area=1000}	
+2017-09-22T09:42:13.550 : addOrder: 
+REQUEST:OrderRequest{customerName=Asma, productType=Laminate, state=OH, area=2000}	
+RESPONSE: OrderResponse{messages=[], order=Order{orderNumber=1, orderDate=2017-09-22, customerName=Asma, tax=Tax{state=OH, taxRate=6.25}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=2000, materialCost=3500.00, laborCost=4200.00, taxAmt=481.25, total=8181.25}, orderPlaced=true}
+2017-09-22T09:43:25.764 : addOrder: 
+REQUEST:OrderRequest{customerName=Asma, productType=Laminate, state=PA, area=1000}	
+RESPONSE: OrderResponse{messages=[], order=Order{orderNumber=1, orderDate=2017-09-22, customerName=Asma, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}, orderPlaced=true}
+2017-09-22T09:44:41.034 : editOrder: 
+REQUEST:Order{orderNumber=1, orderDate=2017-09-22, customerName=Izaan, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}	OrderRequest{customerName=Izaan, productType=, state=, area=0}	
+RESPONSE: OrderResponse{messages=[], order=Order{orderNumber=1, orderDate=2017-09-22, customerName=Izaan, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}, orderPlaced=true}
+2017-09-22T09:49:35.584 : editOrder: 
+REQUEST:Order{orderNumber=1, orderDate=2017-09-22, customerName=Hamza, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}	OrderRequest{customerName=Hamza, productType=, state=, area=0}	
+RESPONSE: OrderResponse{messages=[], order=Order{orderNumber=1, orderDate=2017-09-22, customerName=Hamza, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}, orderPlaced=true}
+2017-09-22T10:00:47.680 : removeOrder: 
+REQUEST:2017-09-22	Order{orderNumber=0, orderDate=2017-09-22, customerName=Sam, tax=Tax{state=OH, taxRate=6.25}, product=Product{productType=Wood, costPerSquareFoot=5.15, laborCostPerSquareFoot=4.75}, area=2000, materialCost=10300.00, laborCost=9500.00, taxAmt=1237.50, total=21037.50}	
+RESPONSE: OrderResponse{messages=[], order=null, orderPlaced=false}
+2017-09-22T10:13:08.257 : removeOrder: 
+REQUEST:2017-09-22	Order{orderNumber=1, orderDate=2017-09-22, customerName=Izaan, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}	
+RESPONSE: OrderResponse{messages=[], order=null, orderPlaced=false}
+2017-09-22T10:14:41.310 : addOrder: 
+REQUEST:OrderRequest{customerName=Asma, productType=Tile, state=PA, area=100}	
+RESPONSE: OrderResponse{messages=[], order=Order{orderNumber=2, orderDate=2017-09-22, customerName=Asma, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Tile, costPerSquareFoot=3.50, laborCostPerSquareFoot=4.15}, area=100, materialCost=350.00, laborCost=415.00, taxAmt=51.64, total=816.64}, orderPlaced=true}
+2017-09-22T10:19:20.951 : removeOrder: 
+REQUEST:2017-09-22	Order{orderNumber=2, orderDate=2017-09-22, customerName=Asma, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Tile, costPerSquareFoot=3.50, laborCostPerSquareFoot=4.15}, area=100, materialCost=350.00, laborCost=415.00, taxAmt=51.64, total=816.64}	
+RESPONSE: OrderResponse{messages=[], order=null, orderPlaced=false}
+2017-09-22T10:19:49.117 : save: 
+REQUEST:true	
+RESPONSE: true
+2017-09-22T10:20:43.735 : removeOrder: 
+REQUEST:2017-09-22	Order{orderNumber=1, orderDate=2017-09-22, customerName=Izaan, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}	
+RESPONSE: OrderResponse{messages=[], order=null, orderPlaced=false}
+2017-09-22T10:20:48.374 : save: 
+REQUEST:false	
+RESPONSE: true
+2017-09-22T10:25:31.452 : searchForOrders: 
+REQUEST: 3	2017-09-22	0		
+RESPONSE: [Order{orderNumber=1, orderDate=2017-09-22, customerName=Izaan, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}]
+2017-09-22T10:26:02.906 : addOrder: 
+REQUEST: OrderRequest{customerName=Asma, productType=Wood, state=oh, area=100}	
+RESPONSE: OrderResponse{messages=[Incorrect state.], order=null, orderPlaced=false}
+2017-09-22T10:27:01.505 : addOrder: 
+REQUEST: OrderRequest{customerName=Asma, productType=Wood, state=OH, area=200}	
+RESPONSE: OrderResponse{messages=[], order=Order{orderNumber=2, orderDate=2017-09-22, customerName=Asma, tax=Tax{state=OH, taxRate=6.25}, product=Product{productType=Wood, costPerSquareFoot=5.15, laborCostPerSquareFoot=4.75}, area=200, materialCost=1030.00, laborCost=950.00, taxAmt=123.75, total=2103.75}, orderPlaced=true}
+2017-09-22T10:27:07.320 : searchForOrders: 
+REQUEST: 3	2017-09-22	0		
+RESPONSE: [Order{orderNumber=1, orderDate=2017-09-22, customerName=Izaan, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}, Order{orderNumber=2, orderDate=2017-09-22, customerName=Asma, tax=Tax{state=OH, taxRate=6.25}, product=Product{productType=Wood, costPerSquareFoot=5.15, laborCostPerSquareFoot=4.75}, area=200, materialCost=1030.00, laborCost=950.00, taxAmt=123.75, total=2103.75}]
+2017-09-22T10:31:48.674 : searchForOrders: 
+REQUEST: 3	2017-09-22	0		
+RESPONSE: [Order{orderNumber=1, orderDate=2017-09-22, customerName=Izaan, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}]
+2017-09-22T10:32:13.865 : addOrder: 
+REQUEST: OrderRequest{customerName=Hamza, productType=Wood, state=OH, area=200}	
+RESPONSE: OrderResponse{messages=[], order=Order{orderNumber=2, orderDate=2017-09-22, customerName=Hamza, tax=Tax{state=OH, taxRate=6.25}, product=Product{productType=Wood, costPerSquareFoot=5.15, laborCostPerSquareFoot=4.75}, area=200, materialCost=1030.00, laborCost=950.00, taxAmt=123.75, total=2103.75}, orderPlaced=true}
+2017-09-22T10:32:40.054 : searchForOrders: 
+REQUEST: 3	2017-09-22	0		
+RESPONSE: [Order{orderNumber=1, orderDate=2017-09-22, customerName=Izaan, tax=Tax{state=PA, taxRate=6.75}, product=Product{productType=Laminate, costPerSquareFoot=1.75, laborCostPerSquareFoot=2.10}, area=1000, materialCost=1750.00, laborCost=2100.00, taxAmt=259.88, total=4109.88}, Order{orderNumber=2, orderDate=2017-09-22, customerName=Hamza, tax=Tax{state=OH, taxRate=6.25}, product=Product{productType=Wood, costPerSquareFoot=5.15, laborCostPerSquareFoot=4.75}, area=200, materialCost=1030.00, laborCost=950.00, taxAmt=123.75, total=2103.75}]

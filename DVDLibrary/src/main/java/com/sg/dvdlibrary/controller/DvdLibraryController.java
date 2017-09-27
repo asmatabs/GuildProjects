@@ -9,8 +9,6 @@ import com.sg.dvdlibrary.dao.DvdLibraryDao;
 import com.sg.dvdlibrary.dao.DvdLibraryDaoException;
 import com.sg.dvdlibrary.dto.Dvd;
 import com.sg.dvdlibrary.ui.DvdLibraryView;
-import com.sg.dvdlibrary.ui.UserIO;
-import com.sg.dvdlibrary.ui.UserIOConsoleImpl;
 import com.sg.dvdlibrary.ui.util.DvdConstants;
 import java.util.List;
 

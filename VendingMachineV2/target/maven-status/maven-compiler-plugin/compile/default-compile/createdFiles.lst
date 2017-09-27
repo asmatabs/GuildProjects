@@ -1,0 +1,17 @@
+com\sg\vendingmachine\App.class
+com\sg\vendingmachine\dto\Money.class
+com\sg\vendingmachine\dao\ItemsDao.class
+com\sg\vendingmachine\ui\UserIOConsoleImpl.class
+com\sg\vendingmachine\dao\FilePersistenceException.class
+com\sg\vendingmachine\ui\UserIO.class
+com\sg\vendingmachine\dto\ItemPrice.class
+com\sg\vendingmachine\service\VendingMachine.class
+com\sg\vendingmachine\dto\Item.class
+com\sg\vendingmachine\service\InsufficientFundsException.class
+com\sg\vendingmachine\service\NoItemInventoryException.class
+com\sg\vendingmachine\dao\ItemsDaoFileImpl.class
+com\sg\vendingmachine\service\VendingMachineAudit.class
+com\sg\vendingmachine\service\VendingMachineImpl.class
+com\sg\vendingmachine\controller\Controller.class
+com\sg\vendingmachine\ui\View.class
+com\sg\vendingmachine\advice\LoggingAdvice.class

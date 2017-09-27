@@ -1,0 +1,125 @@
+2017-09-13T18:57:10.165 : Vending machine initialization complete
+2017-09-13T18:57:23.877 : Payment validated: Money{dollar=2, quarter=1, dime=3, nickel=8, penny=1}
+2017-09-13T18:57:30.179 : Vending item: ID: BUTT04 |Name: Butterfinger
+2017-09-13T18:57:30.179 : Change dispensed: Money{dollar=1, quarter=3, dime=2, nickel=0, penny=2}
+2017-09-13T18:58:23.836 : Vending machine initialization complete
+2017-09-13T18:58:35.225 : Payment validated: Money{dollar=3, quarter=4, dime=9, nickel=1, penny=1}
+2017-09-13T18:58:38.393 : Vending item: ID: DORI02 |Name: Doritos
+2017-09-13T18:58:38.393 : Change dispensed: Money{dollar=1, quarter=3, dime=2, nickel=0, penny=2}
+2017-09-13T22:46:44.679 : Vending machine initialization complete
+2017-09-13T22:47:33.406 : Vending machine initialization complete
+2017-09-13T22:49:16.759 : Vending machine initialization complete
+2017-09-13T22:49:24.924 : Payment validated: Money{dollar=2, quarter=3, dime=1, nickel=5, penny=2}
+2017-09-13T22:49:30.774 : Vending item: ID: OREO03 |Name: Oreos
+2017-09-13T22:49:30.774 : Change dispensed: Money{dollar=1, quarter=0, dime=1, nickel=0, penny=3}
+2017-09-14T12:45:01.484 : Payment validated: Money{dollar=2, quarter=2, dime=1, nickel=2, penny=2}
+2017-09-14T12:46:14.396 : Payment validated: Money{dollar=2, quarter=2, dime=1, nickel=2, penny=2}
+2017-09-14T12:47:58.900 : Payment validated: Money{dollar=2, quarter=2, dime=1, nickel=2, penny=2}
+2017-09-14T12:48:03.566 : Vending machine initialization complete
+2017-09-14T12:49:01.359 : Payment validated: Money{dollar=2, quarter=2, dime=1, nickel=2, penny=2}
+2017-09-14T12:52:13.633 : Payment validated: Money{dollar=2, quarter=2, dime=1, nickel=2, penny=2}
+2017-09-14T12:52:18.931 : Vending machine initialization complete
+2017-09-14T12:52:18.935 : initializeInventory: 
+2017-09-14T12:52:34.215 : Vending machine initialization complete
+2017-09-14T12:52:34.215 : initializeInventory: 
+2017-09-14T12:52:44.806 : Payment validated: Money{dollar=2, quarter=3, dime=1, nickel=4, penny=3}
+2017-09-14T12:52:44.806 : validatePayment: Money{dollar=2, quarter=3, dime=1, nickel=4, penny=3}
+2017-09-14T12:52:48.783 : Vending item: ID: OREO04 |Name: Oreos
+2017-09-14T12:52:48.783 : Change dispensed: Money{dollar=1, quarter=0, dime=0, nickel=1, penny=4}
+2017-09-14T12:52:48.783 : dispenseChange: Money{dollar=2, quarter=3, dime=1, nickel=4, penny=3}true
+2017-09-14T12:54:31.278 : initializeInventory: 
+2017-09-14T12:54:37.511 : validatePayment: Money{dollar=2, quarter=3, dime=4, nickel=5, penny=1}
+2017-09-14T12:54:41.601 : dispenseChange: Money{dollar=2, quarter=3, dime=4, nickel=5, penny=1}false
+2017-09-14T14:35:38.283 : initializeInventory: 
+2017-09-14T14:35:46.095 : validatePayment: Money{dollar=2, quarter=3, dime=2, nickel=4, penny=5}
+2017-09-14T14:35:46.796 : dispenseChange: Money{dollar=2, quarter=3, dime=2, nickel=4, penny=5}false
+2017-09-14T14:39:25.844 : validatePayment: Money{dollar=2, quarter=3, dime=1, nickel=2, penny=3}
+2017-09-14T14:39:35.795 : vendItem: 4Money{dollar=2, quarter=3, dime=1, nickel=2, penny=3}
+2017-09-14T14:39:35.795 : dispenseChange: Money{dollar=2, quarter=3, dime=1, nickel=2, penny=3}true
+2017-09-14T14:54:28.166 : validatePayment: Money{dollar=2, quarter=3, dime=6, nickel=5, penny=1}
+2017-09-14T14:54:33.183 : vendItem: ButterfingerMoney{dollar=2, quarter=3, dime=6, nickel=5, penny=1}
+2017-09-14T14:54:33.183 : dispenseChange: Money{dollar=2, quarter=3, dime=6, nickel=5, penny=1}false
+2017-09-14T14:55:58.621 : validatePayment: Money{dollar=2, quarter=3, dime=2, nickel=1, penny=3}
+2017-09-14T14:56:01.746 : vendItem: ButterfingerMoney{dollar=2, quarter=3, dime=2, nickel=1, penny=3}
+2017-09-14T14:56:01.746 : dispenseChange: Money{dollar=2, quarter=3, dime=2, nickel=1, penny=3}false
+2017-09-14T14:57:01.790 : validatePayment: Money{dollar=2, quarter=3, dime=2, nickel=1, penny=4}
+2017-09-14T14:57:04.586 : vendItem: DoritosMoney{dollar=2, quarter=3, dime=2, nickel=1, penny=4}
+2017-09-14T14:57:04.586 : dispenseChange: Money{dollar=2, quarter=3, dime=2, nickel=1, penny=4}true
+2017-09-14T15:00:32.370 : validatePayment: Money{dollar=2, quarter=3, dime=1, nickel=4, penny=2}
+2017-09-14T15:00:35.503 : vendItem: DoritosMoney{dollar=2, quarter=3, dime=1, nickel=4, penny=2}
+2017-09-14T15:00:35.503 : dispenseChange: Money{dollar=2, quarter=3, dime=1, nickel=4, penny=2}true
+2017-09-14T15:00:58.536 : validatePayment: Money{dollar=2, quarter=3, dime=2, nickel=1, penny=2}
+2017-09-14T15:01:00.256 : vendItem: SnickersMoney{dollar=2, quarter=3, dime=2, nickel=1, penny=2}
+2017-09-14T15:01:00.256 : dispenseChange: Money{dollar=2, quarter=3, dime=2, nickel=1, penny=2}false
+2017-09-14T15:07:52.791 : validatePayment: Money {dollar=2, quarter=3, dime=4, nickel=2, penny=3} 
+2017-09-14T15:07:54.631 : vendItem: SnickersMoney {dollar=2, quarter=3, dime=4, nickel=2, penny=3} 
+2017-09-14T15:07:54.632 : vendItem: SnickersMoney {dollar=2, quarter=3, dime=4, nickel=2, penny=3} 
+2017-09-14T15:07:54.633 : dispenseChange: Money {dollar=2, quarter=3, dime=4, nickel=2, penny=3} false
+2017-09-14T15:14:45.134 : validatePayment: Money {dollar=2, quarter=3, dime=4, nickel=2, penny=3} 
+2017-09-14T15:14:46.333 : vendItem: SnickersMoney {dollar=2, quarter=3, dime=4, nickel=2, penny=3} 
+2017-09-14T15:14:46.333 : vendItem: SnickersMoney {dollar=2, quarter=3, dime=4, nickel=2, penny=3} 
+2017-09-14T15:14:46.336 : dispenseChange: Money {dollar=2, quarter=3, dime=4, nickel=2, penny=3} false
+2017-09-14T15:20:01.654 : validatePayment: Money {dollar=2, quarter=3, dime=2, nickel=1, penny=2} 
+2017-09-14T15:20:04.561 : vendItem: SnickersMoney {dollar=2, quarter=3, dime=2, nickel=1, penny=2} 
+2017-09-14T15:20:04.562 : vendItem: SnickersMoney {dollar=2, quarter=3, dime=2, nickel=1, penny=2} 
+2017-09-14T15:20:04.563 : dispenseChange: Money {dollar=2, quarter=3, dime=2, nickel=1, penny=2} false
+2017-09-14T15:32:01.376 : validatePayment: Money {dollar=2, quarter=3, dime=2, nickel=4, penny=2} 
+2017-09-14T15:32:04.434 : vendItem: SnickersMoney {dollar=2, quarter=3, dime=2, nickel=4, penny=2} 
+2017-09-14T15:32:31.740 : validatePayment: Money {dollar=2, quarter=3, dime=4, nickel=2, penny=1} 
+2017-09-14T15:32:33.655 : vendItem: SnickersMoney {dollar=2, quarter=3, dime=4, nickel=2, penny=1} 
+2017-09-14T15:32:33.659 : vendItem: Sold out on this item
+2017-09-14T15:32:33.663 : dispenseChange: Money {dollar=2, quarter=3, dime=4, nickel=2, penny=1} false
+2017-09-14T15:36:01.986 : validatePayment: Money {dollar=1, quarter=1, dime=1, nickel=1, penny=1} 
+2017-09-14T15:36:05.019 : vendItem: Rice Crispy TreatsMoney {dollar=1, quarter=1, dime=1, nickel=1, penny=1} 
+2017-09-14T15:36:05.023 : vendItem: Cash available is not enough for this item
+2017-09-14T15:36:05.027 : dispenseChange: Money {dollar=1, quarter=1, dime=1, nickel=1, penny=1} false
+2017-09-14T15:37:37.334 : validatePayment: Money {dollar=2, quarter=1, dime=2, nickel=1, penny=2} 	
+2017-09-14T15:37:40.159 : vendItem: Snickers	Money {dollar=2, quarter=1, dime=2, nickel=1, penny=2} 	
+2017-09-14T15:37:40.159 : vendItem: Sold out on this item
+2017-09-14T15:37:40.159 : dispenseChange: Money {dollar=2, quarter=1, dime=2, nickel=1, penny=2} 	false	
+2017-09-14T15:40:09.511 : validatePayment: Money {2.64 }	
+2017-09-14T15:40:11.336 : vendItem: Snickers	Money {2.64 }	
+2017-09-14T15:40:11.337 : vendItem: Sold out on this item
+2017-09-14T15:40:11.338 : dispenseChange: Money {2.64 }	false	
+2017-09-15T13:31:18.913 : validatePayment: Money {2.77}	
+2017-09-15T13:31:24.786 : vendItem: Reeses	Money {2.77}	
+2017-09-15T13:31:24.786 : vendItem: Sold out on this item
+2017-09-15T13:31:24.786 : dispenseChange: Money {2.77}	false	
+2017-09-15T14:34:35.781 : validatePayment: Money {3.46}	
+2017-09-15T14:34:42.158 : vendItem: Oreos	Money {3.46}	
+2017-09-15T14:34:42.163 : dispenseChange: Money {3.46}	true	
+2017-09-15T15:50:45.714 : validatePayment: Money {3.08}	true
+2017-09-15T15:50:51.147 : vendItem: Oreos	Money {3.08}	Item {ID: OREO02 | Name: Oreos
+2017-09-15T15:50:51.147 : dispenseChange: Money {3.08}	true	Money {1.09}
+2017-09-17T18:13:46.533 : validatePayment: Money {3.24}	true
+2017-09-17T18:13:56.285 : vendItem: Snickers	Money {3.24}	Item {ID: SNICTEST101 | Name: Snickers
+2017-09-17T18:13:56.287 : dispenseChange: Money {3.24}	true	Money {1.25}
+2017-09-17T18:14:52.796 : validatePayment: Money {3.26}	true
+2017-09-17T18:14:54.622 : vendItem: Snickers	Money {3.26}	Item {ID: SNIC01 | Name: Snickers
+2017-09-17T18:14:54.622 : dispenseChange: Money {3.26}	true	Money {1.27}
+2017-09-17T22:04:23.191 : validatePayment: Money {3.04}	true
+2017-09-17T22:04:25.112 : vendItem: Snickers	Money {3.04}	Item {ID: SNIC02 | Name: Snickers
+2017-09-17T22:04:25.112 : dispenseChange: Money {3.04}	true	Money {1.05}
+2017-09-17T22:18:05.475 : validatePayment: Money {3.07}	true
+2017-09-17T22:18:06.884 : vendItem: Snickers	Money {3.07}	Item {ID: SNIC03 | Name: Snickers
+2017-09-17T22:18:06.888 : dispenseChange: Money {3.07}	true	Money {1.08}
+2017-09-17T22:18:53.111 : validatePayment: Money {3.22}	true
+2017-09-17T22:18:54.538 : vendItem: Snickers	Money {3.22}	Item {ID: SNICTEST101 | Name: Snickers
+2017-09-17T22:18:54.542 : dispenseChange: Money {3.22}	true	Money {1.23}
+2017-09-17T22:21:22.469 : validatePayment: Money {5.03}	true
+2017-09-17T22:21:25.925 : vendItem: Oreos	Money {5.03}	Item {ID: OREO03 | Name: Oreos
+2017-09-17T22:21:25.925 : dispenseChange: Money {5.03}	true	Money {3.04}
+2017-09-17T22:39:14.451 : validatePayment: Money {2.91}	true
+2017-09-17T22:39:17.988 : vendItem: An error has occured:LOOKS LIKE YOU DO NOT HAVE ENOUGH FUNDS
+2017-09-17T22:39:17.988 : dispenseChange: Money {2.91}	false	Money {2.91}
+2017-09-18T07:14:10.584 : validatePayment:  Money {dollar= 2, quarter= 1, dime= 2, nickel= 1, penny= 1, total= 2.51 }	
+ Returning: true
+2017-09-18T07:14:14.509 : vendItem: Reeses	 Money {dollar= 2, quarter= 1, dime= 2, nickel= 1, penny= 1, total= 2.51 }	
+ Returning: Item ID: REES01 | Name: Reeses
+2017-09-18T07:14:14.509 : dispenseChange:  Money {dollar= 2, quarter= 1, dime= 2, nickel= 1, penny= 1, total= 2.51 }	true	
+ Returning:  Money {dollar= 0, quarter= 2, dime= 0, nickel= 0, penny= 2, total= 0.52 }
+2017-09-18T10:47:37.032 : validatePayment:  Money {dollar= 2, quarter= 3, dime= 4, nickel= 1, penny= 6, total= 3.26 }	
+ Returning: true
+2017-09-18T10:47:42.759 : vendItem: An error has occured: SORRY! SOLD OUT ON THIS ITEM
+2017-09-18T10:47:42.759 : dispenseChange:  Money {dollar= 2, quarter= 3, dime= 4, nickel= 1, penny= 6, total= 3.26 }	false	
+ Returning:  Money {dollar= 3, quarter= 1, dime= 0, nickel= 0, penny= 1, total= 3.26 }

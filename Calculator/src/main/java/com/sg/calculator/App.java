@@ -32,7 +32,7 @@ public class App {
             int option = sc.nextInt();
 
             System.out.print("Enter x:");
-            int opr1 = sc.nextInt();
+            String opr1 = sc.nextLine();
 
             System.out.print("Enter y:");
             int opr2 = sc.nextInt();
