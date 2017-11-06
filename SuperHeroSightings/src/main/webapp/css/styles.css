@@ -1,0 +1,76 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 24, 2017, 6:49:47 PM
+    Author     : asmat
+*/
+
+.navbar{
+    background-color: #f0ad4e;
+    column-fill: auto; 
+}
+
+
+
+*{
+    align-content: center;
+    /*text-align: center;*/
+    font-family: cursive;
+    
+    
+    
+}
+#welcome div{
+    align-content: center;
+    text-align: center;
+    font-family: monospace;
+}
+
+#superhero-title, #sightings-title div{
+    text-align: center;
+    padding: 30px 20px 100px 20px;
+}
+
+#editDeleteHero div{
+    text-align: center;
+}
+
+#hero{
+    text-align: center;
+    padding: 50px 20px 150px 20px;
+}
+
+.img-circle {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.img-circle img {
+  height: 100%;
+  transform: translateX(-80%);
+  margin-left: 50%;
+}
+
+body {
+  background-color: #999;
+}
+
+.carousel-inner > .item {
+  height: 100vh;
+}
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-height: 800px;
+  width: auto;
+}
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Super Hero</title>
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/styles.css"  rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <div class="navbar ">
+                <ul class="nav navbar-btn nav-tabs pull-right">
+                    <li role="presentation" ><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li role="presentation" class="active"><a href="superhero.html">Super Heros</a></li>
+                    <li role="presentation"><a href="sightings.html">Sightings</a></li>
+                    <li role="presentation"><a href="locations.html">Locations</a></li>
+                    <li role="presentation"><a href="organizations.html">Organizations</a></li>
+                </ul>    
+            </div>
+
+            <ul class="list-group" id="errorMessages"></ul>
+
+            <div class="row" id="superhero-title">
+                <div class="col-lg-6">
+                    <h1>Super heros</h1>
+                </div>
+                <div class="col-lg-6">
+                    <button id="createHero" onclick="createSuperHero()">Create SuperHero</button>
+                </div>
+            </div>
+
+            <div class="row" id="heros-listing">
+            </div>
+
+            <div class="row" id="heroDiv">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <div class="row" id ="showhero">
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6" id="editDeleteHero">
+                                <div class="col-md-6">
+                                    <button id="editHero" onclick="editSuperHero()">Edit</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button id="deleteHero" onclick="confirmDeleteSuperHero()">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+                <div class="row">
+
+
+                </div>
+            </div>
+
+            <div class="modal" tabindex="-1" role="dialog" id="confirmDelete">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Delete</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete the super hero?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="deleteSuperHero()">Yes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="addEditHeroDiv" style="display: none">
+                <div id="addEditHeroDivTitle"></div>
+
+                <form class="form-horizontal" role="form" id="edit-form">
+                    <div class="form-group">
+                        <label for="super-hero-name" class="col-md-4 control-label">
+                            Super Name:
+                        </label>
+
+                        <div class="col-md-4">
+                            <input type="text"
+                                   class="form-control"
+                                   id="super-hero-name"
+                                   placeholder="Super Name" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="super-hero-desc" class="col-md-4 control-label">
+                            Description:
+                        </label>
+
+                        <div class="col-md-4">
+                            <input type="text"
+                                   class="form-control"
+                                   id="super-hero-desc"
+                                   placeholder="Description"
+                                   />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="super-hero-gender" class="col-md-4 control-label">
+                            Gender:</label>
+
+                        <div class="col-md-4">
+                            <input type="text"
+                                   class="form-control"
+                                   id="super-hero-gender"
+                                   placeholder="Gender"/>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-md-4 control-label">
+                            Organization:</label>
+
+                        <div class="col-md-4">
+                            <select class="form-control" multiple id="superhero-org-div">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            Powers:</label>
+
+                        <div class="col-md-4" id="powerDiv">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="super-hero-image" class="col-md-4 control-label">
+                            Image:</label>
+
+                        <div class="col-md-4">
+                            <input type="text"
+                                   class="form-control"
+                                   id="super-hero-image"
+                                   placeholder="Link to image"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-4 col-md-4">
+                            <input type="hidden">
+                            <button type="button"
+                                    id="superhero-cancel-button"
+                                    class="btn btn-default"
+                                    onclick="hideAddForm()">
+                                Cancel
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button"
+                                    id="save-button"
+                                    class="btn btn-default"
+                                    onclick="saveHero()">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+
+
+
+        </div>
+        <!-- #5: Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/superhero.js"></script>
+    </body>
+</html>

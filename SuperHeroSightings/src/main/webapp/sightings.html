@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Super Hero Sightings</title>
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/styles.css"  rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <div class="navbar">
+                <ul class="nav navbar-btn nav-tabs pull-right">
+                    <li role="presentation" ><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li role="presentation"><a href="superhero.html">Super Heros</a></li>
+                    <li role="presentation" class="active"><a href="sightings.html">Sightings</a></li>
+                    <li role="presentation"><a href="locations.html">Locations</a></li>
+                    <li role="presentation"><a href="organizations.html">Organizations</a></li>
+                </ul>    
+            </div>
+
+            <ul class="list-group" id="errorMessages"></ul>
+
+            <div class="row" id="sightings-title">
+                <div class="col-lg-6">
+                    <h1>Sightings</h1>
+                </div>
+                <div class="col-lg-offset-2 col-lg-2">
+                    <button id="createSighting" class="form-control btn-group-sm" onclick="createSighting()">Create Sighting</button>
+                </div>
+            </div>
+            <!--Search criteria-->
+            <div class="row" id="searchCriteria">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-offset-2 col-lg-6">
+                    <form role="form">
+                        <div class="row">
+                            <label class=" col-md-2 control-label">
+                                Search :
+                            </label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="searchSighting">
+                                    <option selected>Search Sightings...</option>
+                                    <option value="1">All Sightings</option>
+                                    <option value="2">By Superhero</option>
+                                    <option value="3">By Location and Date</option>
+                                </select>
+                            </div>
+                            <div class=" col-md-4">
+                                <button type="button"
+                                        id="search-button"
+                                        onclick="searchSighings()"
+                                        class="btn btn-default">
+                                    Search
+                                </button>
+                                <br><br><br>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+
+            <!--Search forms-->
+            <div class="row" id="searchSuperHeroForm" style="display: none">
+                <!--Search by Super Hero-->
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <form role="form" >
+                        <div class="row form-group">
+                            <label class="col-md-offset-2 col-md-4 control-label">
+                                Select a Super Hero:
+                            </label>
+
+                            <div class="col-md-4" >
+                                <select class="form-control" id="search-superhero">
+                                    <option selected>Select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-offset-6 col-md-8">
+                            <button type="button"
+                                    id="search-superhero-button"
+                                    onclick="searchBySuperHero()"
+                                    class="btn btn-default">
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+
+            <div class="row"  id="searchLocationForm" style="display: none">
+                <!--Search By Location and Date-->
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <form role="form">
+                        <div class="row">
+                            <label for="search-location" class="col-md-offset-2 col-md-4">
+                                Location:
+                            </label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="search-location">
+                                    <option selected value="">Select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label for="search-date" class="col-md-offset-2 col-md-4">
+                                Date:
+                            </label>
+                            <div class="col-md-4">
+                                <input type="date"
+                                       class="form-control"
+                                       id="search-date"/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-offset-6 col-md-8">
+                            <button type="button"
+                                    id="search-location-button"
+                                    onclick="searchByLocationAndDate()"
+                                    class="btn btn-default">
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+
+            <div class="row" id="sightingDisplayDiv" style="display: none">
+                <div class="col-lg-12"  >
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <table id="SightingsByLocation" class="table table-hover">
+                            <tr>
+                                <th width="20%">Location</th>
+                                <th width="20%">Date</th>
+                                <th width="30%">Super Heros</th>
+                                <th width="15%"></th>
+                                <th width="15%"></th>
+                            </tr>
+                            <tbody id="sightingsListing">
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
+            <div class="row" id="addEditFormDiv" style="display: none">
+
+                <form class="form-horizontal" role="form" id="edit-form">
+                    <div class="form-group">
+                        <label for="ae-sighting-location" class="col-md-4 control-label">
+                            Location:
+                        </label>
+                        <div class="col-md-4">
+                            <select class="form-control" id="ae-sighting-location">
+                                <option selected value="">Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ae-sighting-date" class="col-md-4 control-label">
+                            Date:
+                        </label>
+                        <div class="col-md-4">
+                            <input type="date"
+                                   class="form-control"
+                                   id="ae-sighting-date"
+                                   />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ae-sighting-super-heros" class="col-md-4 control-label">
+                            Super Heros:</label>
+                        <div class="col-md-4">
+                            <select class="form-control" multiple id="ae-sighting-super-heros">
+                                <option selected value="">Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ae-sighting-image" class="col-md-4 control-label">
+                           Link to Image:
+                        </label>
+                        <div class="col-md-4">
+                            <input type="text"
+                                   class="form-control"
+                                   id="ae-sighting-image"
+                                   />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-md-2">
+                            <input type="hidden" id="edit-contact-id">
+                            <button type="button"
+                                    id="ae-cancel-button"
+                                    class="btn btn-default"
+                                    onclick="hideAddEditForm()">
+                                Cancel
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button"
+                                    id="edit-button"
+                                    class="btn btn-default"
+                                    onclick="save">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--        <div class="col-md-8">
+                    <h2>New Sighting</h2>
+        
+                    <form class="form-horizontal" role="form" id="add-form">
+                        <div class="form-group">
+                            <label for="add-location" class="col-md-4 control-label">
+                                Location:
+                            </label>
+        
+                            <div class="col-md-8">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-location"
+                                       placeholder="Location" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-last-name" class="col-md-4 control-label">
+                                Last Name:
+                            </label>
+        
+                            <div class="col-md-8">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-last-name"
+                                       placeholder="Last Name" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-company" class="col-md-4 control-label">
+                                Company:</label>
+        
+                            <div class="col-md-8">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-company"
+                                       placeholder="Company"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-email" class="col-md-4 control-label">Email:</label>
+        
+                            <div class="col-md-8">
+                                <input type="email"
+                                       class="form-control"
+                                       id="add-email"
+                                       placeholder="Email" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-phone" class="col-md-4 control-label">Phone:</label>
+        
+                            <div class="col-md-8">
+                                <input type="tel"
+                                       class="form-control"
+                                       id="add-phone"
+                                       placeholder="Phone"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <button type="button"
+                                        id="add-button"
+                                        class="btn btn-default">
+                                    Create Contact
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>  -->
+
+        <!-- #5: Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/sightings.js"></script>
+    </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Super heros, Sightings and Organizations</title>
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css"  rel="stylesheet">
+        <link href="css/styles.css"  rel="stylesheet">
+
+
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <div class="navbar ">
+                <ul class="nav navbar-btn nav-tabs pull-right">
+                    <li role="presentation" class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li role="presentation" id="super-hero-tab"><a href="superhero.html">Super Heros</a></li>
+                    <li role="presentation"><a href="sightings.html">Sightings</a></li>
+                    <li role="presentation"><a href="locations.html">Locations</a></li>
+                    <li role="presentation"><a href="organizations.html">Organizations</a></li>
+                </ul>    
+            </div>
+
+            <div class="row" id="welcome">
+                <div id="title">
+                    <h1>Hero Wiki</h1>
+                </div>
+                <div id ="welcome-msg">
+                    <h2>Superheroes, Sightings and Organization all in one place!!</h2>
+                    <br>
+                    <p>
+                        Explore the world of Super heros, Super Powers and Teams they work for.<br>
+                        We have a comprehensive collection of sightings of all super heroes.<br>
+                        See what your favorite hero has been upto!<br><br><br>
+                    </p>
+                </div>
+
+
+            </div>
+            <!--
+            Add a row to our container - this will hold the summary table and the new contact form.
+            -->
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div id="myCarousel" class="carousel" data-interval="3000" data-ride="carousel" >
+                        <!--Indicators--> 
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1" ></li>
+                            <li data-target="#myCarousel" data-slide-to="2" ></li>
+                            <li data-target="#myCarousel" data-slide-to="3" ></li>
+                            <li data-target="#myCarousel" data-slide-to="4" ></li>
+                            <li data-target="#myCarousel" data-slide-to="5" ></li>
+                            <li data-target="#myCarousel" data-slide-to="6" ></li>
+                            <li data-target="#myCarousel" data-slide-to="7" ></li>
+                            <li data-target="#myCarousel" data-slide-to="8" ></li>
+                            <li data-target="#myCarousel" data-slide-to="9" ></li>
+                        </ol>
+
+                        <!--Wrappers for slides-->
+                        <div class="carousel-inner" id="carousel-items"> 
+
+                        </div>
+
+                        <!--Left and right controls--> 
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <!-- #5: Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/index.js"></script>
+
+    </body>
+</html>
