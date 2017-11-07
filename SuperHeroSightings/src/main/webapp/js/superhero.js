@@ -171,10 +171,17 @@ function deleteSuperHero()
     });
 }
 
+function cancelDelete()
+{
+    $('#confirmDelete').hide();
+    window.location.reload();
+    
+}
 function saveHero()
 {
     if (isFinite(hero))
     {
+        //update mode
         $.ajax({
             type: 'PUT',
             url: 'superhero/hero/' + hero.superHeroId,
@@ -202,6 +209,7 @@ function saveHero()
         });
     } else
     {
+        //Add mode
         var orgs = [];
         $('#orgDiv').children("input:checked").map(function () {
             orgs.push(this.name);

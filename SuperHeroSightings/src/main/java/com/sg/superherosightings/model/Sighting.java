@@ -35,7 +35,7 @@ public class Sighting {
     @JoinColumn(name = "LocationId", referencedColumnName = "LocationId", insertable = true)
     private Location location;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "SightingHero",
             joinColumns = @JoinColumn(name = "SightingId"),
             inverseJoinColumns = @JoinColumn(name = "SuperHeroId"))

@@ -38,7 +38,10 @@ public class SHSightingsLocationDaoImpl implements SHSightingsLocationDao {
     @Override
     public Location add(Location location) {
         try (Session session = HibernateUtil.getSession()) {
+            tx = session.beginTransaction();
             session.saveOrUpdate(location);
+            session.flush();
+            tx.commit();
             return location;
         }
     }

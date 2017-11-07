@@ -3,45 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sg.superherosightings.model;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.sg.superherosightings.model.request;
 
 /**
  *
  * @author asmat
  */
-@Entity
-public class Address {
-    
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long addressId;
-    private String Street;
+public class LocationRequest {
+    private String name;
+    private String description;
+
+    private String street;
     private String city;
     private String state;
     private String country;
     private String postalCode;
-    private Float latitude;
-    private Float longitude;
+    private String latitude;
+    private String longitude; 
 
-    public long getAddressId() {
-        return addressId;
+    public String getName() {
+        return name;
     }
 
-    public void setAddressId(long addressId) {
-        this.addressId = addressId;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getStreet() {
-        return Street;
+        return street;
     }
 
-    public void setStreet(String Street) {
-        this.Street = Street;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getCity() {
@@ -76,20 +77,20 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    public Float getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Float latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public Float getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Float longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
-
+    
 }

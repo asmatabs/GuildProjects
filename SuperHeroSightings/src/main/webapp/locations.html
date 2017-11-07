@@ -22,10 +22,10 @@
             <div class="row">
                 <!-- #2: Add a col to hold the summary table - have it take up half the row -->
                 <div class="col-md-6">
-                    <div id="locationsTableDiv">
+                    <div >
                         <h2>Locations</h2>
 
-                        <table id="contactTable" class="table table-hover">
+                        <table id="locationsTable" class="table table-hover">
                             <tr>
                                 <th width="20%">Location</th>
                                 <th width="30%">Description</th>
@@ -36,69 +36,69 @@
                             <tbody id="contentRows"></tbody>
                         </table>
                     </div>
-                    <div id="editFormDiv">
-                        <h2>Edit Location</h2>
-
-                        <form class="form-horizontal" role="form" id="edit-form">
-                            <div class="form-group">
-                                <label for="edit-location" class="col-md-4 control-label">
-                                    Location:
-                                </label>
-
-                                <div class="col-md-8">
-                                    <!--                                    <input type="text"
-                                                                               class="form-control"
-                                                                               id="edit-location"
-                                                                               placeholder="Location" required/>-->
-                                    <select class="form-control" id="edit-location">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit-description" class="col-md-4 control-label">
-                                    Description:
-                                </label>
-
-                                <div class="col-md-8">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="edit-description"
-                                           placeholder="Description" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit-address" class="col-md-4 control-label">
-                                    Address</label>
-
-                                <div class="col-md-8">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="edit-address"
-                                           placeholder="Address"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-offset-4 col-md-4">
-                                    <input type="hidden" id="edit-contact-id">
-                                    <button type="button"
-                                            id="edit-cancel-button"
-                                            class="btn btn-default"
-                                            onclick="hideEditForm()">
-                                        Cancel
-                                    </button>
-                                </div>
-                                <div class="col-md-4">
-                                    <button type="button"
-                                            id="edit-button"
-                                            class="btn btn-default">
-                                        Update Location
-                                    </button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
+                    <!--                    <div id="editFormDiv">
+                                            <h2>Edit Location</h2>
+                    
+                                            <form class="form-horizontal" role="form" id="edit-form">
+                                                <div class="form-group">
+                                                    <label for="edit-location" class="col-md-4 control-label">
+                                                        Location:
+                                                    </label>
+                    
+                                                    <div class="col-md-8">
+                                                                                            <input type="text"
+                                                                                                   class="form-control"
+                                                                                                   id="edit-location"
+                                                                                                   placeholder="Location" required/>
+                                                        <select class="form-control" id="edit-location">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="edit-description" class="col-md-4 control-label">
+                                                        Description:
+                                                    </label>
+                    
+                                                    <div class="col-md-8">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="edit-description"
+                                                               placeholder="Description" required/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="edit-address" class="col-md-4 control-label">
+                                                        Address</label>
+                    
+                                                    <div class="col-md-8">
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               id="edit-address"
+                                                               placeholder="Address"/>
+                                                    </div>
+                                                </div>
+                    
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-4 col-md-4">
+                                                        <input type="hidden" id="edit-contact-id">
+                                                        <button type="button"
+                                                                id="edit-cancel-button"
+                                                                class="btn btn-default"
+                                                                onclick="hideEditForm()">
+                                                            Cancel
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <button type="button"
+                                                                id="edit-button"
+                                                                class="btn btn-default">
+                                                            Update Location
+                                                        </button>
+                                                    </div>
+                                                </div>
+                    
+                                            </form>
+                                        </div>-->
                 </div> 
 
                 <div class="col-md-6">
@@ -110,13 +110,11 @@
                                 Location:
                             </label>
 
-                            <div class="col-md-8">
-                                <!--                                                            <input type="text"
-                                                                                                   class="form-control"
-                                                                                                   id="add-location"
-                                                                                                   placeholder="Location" required/>-->-->
-                                <select class="form-control" id="add-location">
-                                </select>
+                            <div class="col-md-6">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-location"
+                                       placeholder="Location" required/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -124,30 +122,101 @@
                                 Description:
                             </label>
 
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input type="text"
                                        class="form-control"
                                        id="add-description"
                                        placeholder="Description" required/>
                             </div>
                         </div>
+                        <div class="col-md-offset-4">
+                            <h4>Address</h4>
+                        </div>
                         <div class="form-group">
-                            <label for="add-address" class="col-md-4 control-label">
-                                Address:</label>
+                            <label for="add-address-street" class="col-md-4 control-label">
+                                Street:</label>
 
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input type="text"
                                        class="form-control"
-                                       id="add-address"
-                                       placeholder="Address"/>
+                                       id="add-address-street"
+                                       placeholder="Street"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-address-city" class="col-md-4 control-label">
+                                City:</label>
+                            <div class="col-md-6">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-address-city"
+                                       placeholder="City"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-address-state" class="col-md-4 control-label">
+                                State:</label>
+                            <div class="col-md-6">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-address-state"
+                                       placeholder="State"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-address-country" class="col-md-4 control-label">
+                                Country:</label>
+
+                            <div class="col-md-6">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-address-country"
+                                       placeholder="Country"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add-address-postal" class="col-md-4 control-label">
+                                Postal Code:</label>
+
+                            <div class="col-md-6">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-address-postal"
+                                       placeholder="Postal Code"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add-address-latitude" class="col-md-4 control-label">
+                                Latitude:</label>
+
+                            <div class="col-md-6">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-address-latitude"
+                                       placeholder="Latitude"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add-address-longitude" class="col-md-4 control-label">
+                                Longitude:</label>
+
+                            <div class="col-md-6">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-address-longitude"
+                                       placeholder="Longitude"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-4 col-md-8">
                                 <button type="button"
                                         id="add-button"
+                                        onclick="saveLocation()"
                                         class="btn btn-default">
-                                    Create Location
+                                    Save
                                 </button>
                             </div>
                         </div>
@@ -158,6 +227,6 @@
         <!-- #5: Placed at the end of the document so the pages load faster -->
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/bootstrap.js"></script>
-        <script src="js/location.js"></script>
+        <script src="js/locations.js"></script>
     </body>
 </html>

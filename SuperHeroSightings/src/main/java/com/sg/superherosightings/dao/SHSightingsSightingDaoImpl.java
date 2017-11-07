@@ -71,7 +71,10 @@ public class SHSightingsSightingDaoImpl implements SHSightingsSightingDao {
     @Override
     public Sighting add(Sighting sighting) {
         try (Session session = HibernateUtil.getSession()) {
+            tx = session.beginTransaction();
             session.saveOrUpdate(sighting);
+            session.flush();
+            tx.commit();
             return sighting;
         }
     }

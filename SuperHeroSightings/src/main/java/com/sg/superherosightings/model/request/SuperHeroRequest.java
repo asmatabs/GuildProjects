@@ -5,9 +5,6 @@
  */
 package com.sg.superherosightings.model.request;
 
-import java.util.List;
-import java.util.Set;
-
 /**
  *
  * @author asmat

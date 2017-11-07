@@ -5,13 +5,19 @@
  */
 package com.sg.superherosightings.controller;
 
+import com.sg.superherosightings.dao.SHSightingsLocationDao;
 import com.sg.superherosightings.dao.SHSightingsSightingDao;
+import com.sg.superherosightings.dao.SHSightingsSuperHeroDao;
+import com.sg.superherosightings.model.Location;
 import com.sg.superherosightings.model.Organization;
 import com.sg.superherosightings.model.Sighting;
 import com.sg.superherosightings.model.SuperHero;
+import com.sg.superherosightings.model.request.SightingRequest;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.inject.Inject;
 import javax.persistence.QueryHint;
 import javax.validation.Valid;
@@ -38,10 +44,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class SHSightingsSightingsController {
 
     SHSightingsSightingDao sightingsDao;
+    SHSightingsLocationDao locationDao;
+    SHSightingsSuperHeroDao superheroDao;
 
     @Inject
-    public SHSightingsSightingsController(SHSightingsSightingDao sightingsDao) {
+    public SHSightingsSightingsController(SHSightingsSightingDao sightingsDao, SHSightingsLocationDao locationDao, SHSightingsSuperHeroDao superheroDao) {
         this.sightingsDao = sightingsDao;
+        this.locationDao = locationDao;
+        this.superheroDao = superheroDao;
     }
 
     @RequestMapping(value = "/topten", method = RequestMethod.GET)
@@ -75,10 +85,33 @@ public class SHSightingsSightingsController {
         return sightingsDao.getBySuperHero(id);
     }
 
-    @RequestMapping(value = "/sighting", method = RequestMethod.PUT)
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Sighting> showAllSightings() {
+        return sightingsDao.getAll();
+    }
+
+    @RequestMapping(value = "/sighting", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public Sighting createSighting(@Valid @RequestBody Sighting sighting) {
+    public Sighting createSighting(@Valid @RequestBody SightingRequest sightingRequest) {
+        Sighting sighting = new Sighting();
+        sighting.setImage(sightingRequest.getImage());
+        sighting.setDateSighted(LocalDate.parse(sightingRequest.getDateSighted(), DateTimeFormatter.ISO_DATE));
+
+        long locationId = Long.parseLong(sightingRequest.getLocation());
+
+        Location location = locationDao.getById(locationId);
+        sighting.setLocation(location);
+
+        Set<SuperHero> superheros = new HashSet<>();
+        String[] tokens = sightingRequest.getSuperHeros().split(",");
+        for (String token : tokens) {
+            superheros.add(superheroDao.getById(Long.parseLong(token)));
+        }
+        sighting.setLocation(location);
+        sighting.setSuperHero(superheros);
+
         return sightingsDao.add(sighting);
     }
 

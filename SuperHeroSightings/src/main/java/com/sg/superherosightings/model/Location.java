@@ -31,13 +31,8 @@ public class Location {
     private String name;
     private String description;
     
-    //@OneToOne (mappedBy = "addressId", fetch = FetchType.EAGER, orphanRemoval = false)
-    //@JoinColumn(name = "AddressId", referencedColumnName = "AddressId", insertable = true, updatable = true, nullable = false)
-    
-//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "AddressId", referencedColumnName = "AddressId", insertable = true)
-    @OneToOne
-    @JoinColumn(name = "AddressId")
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "AddressId", insertable = true)
     private Address address;
 
     public Long getLocationId() {

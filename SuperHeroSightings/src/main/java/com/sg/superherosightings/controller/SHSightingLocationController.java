@@ -6,7 +6,9 @@
 package com.sg.superherosightings.controller;
 
 import com.sg.superherosightings.dao.SHSightingsLocationDao;
+import com.sg.superherosightings.model.Address;
 import com.sg.superherosightings.model.Location;
+import com.sg.superherosightings.model.request.LocationRequest;
 import java.util.List;
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -45,7 +47,21 @@ public class SHSightingLocationController {
     @RequestMapping(value = "/location", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public Location createLocation(@Valid @RequestBody Location location) {
+    public Location createLocation(@Valid @RequestBody LocationRequest locationReq) {
+        Location location = new Location();
+        location.setName(locationReq.getName());
+        location.setDescription(locationReq.getDescription());
+        
+        Address address = new Address();
+        address.setStreet(locationReq.getStreet());
+        address.setCity(locationReq.getCity());
+        address.setCountry(locationReq.getCountry());
+        address.setState(locationReq.getState());
+        address.setPostalCode(locationReq.getPostalCode());
+        address.setLatitude(Float.parseFloat(locationReq.getLatitude()));
+        address.setLongitude(Float.parseFloat(locationReq.getLongitude()));
+        
+        location.setAddress(address);
         return locationDao.add(location);
     }
 
