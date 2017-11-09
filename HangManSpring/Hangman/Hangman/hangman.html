@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Hangman</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <br /><br />
+  <div id="app" style="text-align:center;">
+    <div class="selector">
+      <h1>Settings</h1>
+      <select id="selection">
+        <option disabled selected>Difficulty...</option>
+        <option disabled>Easy</option>
+        <option value="?wordSize=3">&nbsp;3</option>
+        <option value="?wordSize=4">&nbsp;4</option>
+        <option value="?wordSize=5">&nbsp;5</option>
+        <option value="?wordSize=6">&nbsp;6</option>
+        <option disabled>Normal</option>
+        <option value="?wordSize=7">&nbsp;7</option>
+        <option value="?wordSize=8">&nbsp;8</option>
+        <option value="?wordSize=9">&nbsp;9</option>
+        <option disabled>Hard</option>
+        <option value="?wordSize=10">&nbsp;10</option>
+        <option value="?wordSize=11">&nbsp;11</option>
+        <option value="?wordSize=12">&nbsp;12</option>
+      </select>
+      <br />
+      <a class="btn btn-warning" id="cheat" style="margin-top:20px;cursor:pointer;">Show Word</a>
+      <a class="btn btn-primary" id="submit" style="margin-top:20px;cursor:pointer;">Submit</a>
+    </div>
+    <h1>Hangman</h1>
+    <br />
+    <div id="letters">
+
+    </div>
+    <br />
+    <div id="letter-list">
+
+    </div>
+  </div>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.min.js"></script>
+  <script src="js/script.js"></script>
+  <br />
+  <h2 style="text-align:center">Incorrect Guesses: <span id="incorrect">0</span>/5</h2>
+  <h1 id="killer" style="text-align:center;"></h1>
+</body>
+</html>

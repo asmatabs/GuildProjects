@@ -1,0 +1,44 @@
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 0.5in;
+    text-align: center;
+    border-bottom-style: ridge;
+    padding-bottom: 20px;
+    color: CornflowerBlue;
+}
+input{
+    text-align:center;
+}
+form{
+    padding: 0px 0px 0px 10px;
+
+}
+h4{
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 0.25in;
+    text-align: center;
+}
+
+
+#itemsDiv{
+    padding: 50px 30px 30px 30px;
+}
+.item{
+    border-style: hidden;
+    margin: 10px 10px 10px 10px;
+}
+
+#cashDiv,#purchaseDiv{
+    padding-bottom: 20px;
+    border-bottom-style: groove;
+    }
+#change{
+    width: 400px;
+}
+
+.itemButton{
+    background-color: gainsboro;
+    width: 100%;
+
+}
+
