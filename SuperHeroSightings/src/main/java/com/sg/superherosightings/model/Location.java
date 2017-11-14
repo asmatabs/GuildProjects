@@ -31,7 +31,7 @@ public class Location {
     private String name;
     private String description;
     
-    @OneToOne (cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL) //(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinColumn(name = "AddressId", insertable = true)
     private Address address;
 

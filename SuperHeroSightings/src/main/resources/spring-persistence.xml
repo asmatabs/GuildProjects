@@ -24,7 +24,6 @@
     <bean id="locationDao" class="com.sg.superherosightings.dao.SHSightingsLocationDaoImpl"/>
     <bean id="sightingDao" class="com.sg.superherosightings.dao.SHSightingsSightingDaoImpl"/>
     <bean id="superHeroService" class="com.sg.superherosightings.service.SHSightingsSuperHeroService"/>
-    <bean id="organizationService" class="com.sg.superherosightings.service.SHSightingsOrganizationService"/>
     <bean id="superPowerService" class="com.sg.superherosightings.service.SHSightingsSuperPowerService"/>
     
 </beans>

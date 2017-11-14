@@ -31,12 +31,11 @@
             </div>
             <!--Search criteria-->
             <div class="row" id="searchCriteria">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-offset-2 col-lg-6">
+                <div class="col-lg-offset-2 col-lg-4">
                     <form role="form">
                         <div class="row">
-                            <label class=" col-md-2 control-label">
-                                Search :
+                            <label class=" col-md-4 control-label">
+                                Select a Criteria :
                             </label>
                             <div class="col-md-4">
                                 <select class="form-control" id="searchSighting">
@@ -49,7 +48,7 @@
                             <div class=" col-md-4">
                                 <button type="button"
                                         id="search-button"
-                                        onclick="searchSighings()"
+                                        onclick="searchSightings()"
                                         class="btn btn-default">
                                     Search
                                 </button>
@@ -58,14 +57,12 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-2"></div>
             </div>
 
             <!--Search forms-->
             <div class="row" id="searchSuperHeroForm" style="display: none">
                 <!--Search by Super Hero-->
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <form role="form" >
                         <div class="row form-group">
                             <label class="col-md-offset-2 col-md-4 control-label">
@@ -89,7 +86,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-2"></div>
+                <div class="col-lg-6"></div>
             </div>
 
             <div class="row"  id="searchLocationForm" style="display: none">
@@ -131,7 +128,7 @@
                 </div>
                 <div class="col-lg-2"></div>
             </div>
-                        <div class="modal" tabindex="-1" role="dialog" id="confirmSightingDelete">
+            <div class="modal" tabindex="-1" role="dialog" id="confirmSightingDelete">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -152,30 +149,34 @@
             </div>
 
             <div class="row" id="sightingDisplayDiv" style="display: none">
-                <div class="col-lg-12"  >
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-8">
-                        <table id="SightingsByLocation" class="table table-hover">
+                <div class="col-lg-8">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-10">
+                        <table class="table table-hover">
                             <tr>
+                                <!--<th width="0%"></th>-->
                                 <th width="20%">Location</th>
                                 <th width="20%">Date</th>
                                 <th width="30%">Super Heros</th>
-                                <th width="15%"></th>
-                                <th width="15%"></th>
+                                <th width="10%">Image</th>
+                                <th width="10%"></th>
+                                <th width="10%"></th>
                             </tr>
                             <tbody id="sightingsListing">
-
-
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-1"></div>
+                </div>
+                <div class="col-lg-4" id="map">
                 </div>
             </div>
             <div class="row" id="addEditFormDiv" style="display: none">
 
                 <form class="form-horizontal" role="form" id="edit-form">
                     <div class="form-group">
+                        <input type="hidden"
+                               id="ae-sighting-id"/>
                         <label for="ae-sighting-location" class="col-md-4 control-label">
                             Location:
                         </label>
@@ -201,7 +202,7 @@
                             Super Heros:</label>
                         <div class="col-md-4">
                             <select class="form-control" multiple id="ae-sighting-super-heros">
-                                <option selected value="">Select</option>
+                                <!--<option selected value="">Select</option>-->
                             </select>
                         </div>
                     </div>
@@ -241,82 +242,12 @@
 
         </div>
 
-
-
-        <!--        <div class="col-md-8">
-                    <h2>New Sighting</h2>
-        
-                    <form class="form-horizontal" role="form" id="add-form">
-                        <div class="form-group">
-                            <label for="add-location" class="col-md-4 control-label">
-                                Location:
-                            </label>
-        
-                            <div class="col-md-8">
-                                <input type="text"
-                                       class="form-control"
-                                       id="add-location"
-                                       placeholder="Location" required/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="add-last-name" class="col-md-4 control-label">
-                                Last Name:
-                            </label>
-        
-                            <div class="col-md-8">
-                                <input type="text"
-                                       class="form-control"
-                                       id="add-last-name"
-                                       placeholder="Last Name" required/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="add-company" class="col-md-4 control-label">
-                                Company:</label>
-        
-                            <div class="col-md-8">
-                                <input type="text"
-                                       class="form-control"
-                                       id="add-company"
-                                       placeholder="Company"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="add-email" class="col-md-4 control-label">Email:</label>
-        
-                            <div class="col-md-8">
-                                <input type="email"
-                                       class="form-control"
-                                       id="add-email"
-                                       placeholder="Email" required/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="add-phone" class="col-md-4 control-label">Phone:</label>
-        
-                            <div class="col-md-8">
-                                <input type="tel"
-                                       class="form-control"
-                                       id="add-phone"
-                                       placeholder="Phone"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-4 col-md-8">
-                                <button type="button"
-                                        id="add-button"
-                                        class="btn btn-default">
-                                    Create Contact
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>  -->
-
-        <!-- #5: Placed at the end of the document so the pages load faster -->
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sightings.js"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWNR87ufvXpVo8FKnFgUQG_-J2Iv81qD4&callback=initMap">
+        </script>
+
     </body>
 </html>

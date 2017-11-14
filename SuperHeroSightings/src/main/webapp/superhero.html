@@ -25,7 +25,7 @@
                 <div class="col-lg-6">
                     <h1>Super heros</h1>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 btn-group-lg">
                     <button id="createHero" onclick="createSuperHero()">Create SuperHero</button>
                 </div>
             </div>
@@ -55,8 +55,6 @@
                     <div class="col-lg-2"></div>
                 </div>
                 <div class="row">
-
-
                 </div>
             </div>
 
@@ -80,13 +78,14 @@
                 </div>
             </div>
 
-
-
             <div id="addEditHeroDiv" style="display: none">
                 <div id="addEditHeroDivTitle"></div>
 
                 <form class="form-horizontal" role="form" id="edit-form">
                     <div class="form-group">
+                        <input type="hidden"
+                               id="super-hero-id"/>
+
                         <label for="super-hero-name" class="col-md-4 control-label">
                             Super Name:
                         </label>
@@ -135,7 +134,9 @@
                         <label class="col-md-4 control-label">
                             Powers:</label>
 
-                        <div class="col-md-4" id="powerDiv">
+                        <div class="col-md-4">
+                            <select class="form-control" multiple id="superhero-power-div">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -150,10 +151,10 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-offset-4 col-md-4">
+                        <div class="col-md-offset-4 col-md-2">
                             <button type="button"
                                     id="superhero-cancel-button"
-                                    class="btn btn-default form-control"
+                                    class="btn btn-default"
                                     onclick="cancelDelete()">
                                 Cancel
                             </button>
@@ -161,7 +162,7 @@
                         <div class="col-md-4">
                             <button type="button"
                                     id="save-button"
-                                    class="btn btn-default form-control"
+                                    class="btn btn-default"
                                     onclick="saveHero()">
                                 Save
                             </button>

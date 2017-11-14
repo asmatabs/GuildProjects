@@ -5,11 +5,12 @@
  */
 package com.sg.superherosightings.controller;
 
+import com.sg.superherosightings.dao.SHSightingsOrganizationDao;
+import com.sg.superherosightings.dao.SHSightingsSightingDao;
 import com.sg.superherosightings.model.Organization;
 import com.sg.superherosightings.model.SuperHero;
 import com.sg.superherosightings.model.SuperPower;
 import com.sg.superherosightings.model.request.SuperHeroRequest;
-import com.sg.superherosightings.service.SHSightingsOrganizationService;
 import com.sg.superherosightings.service.SHSightingsSuperHeroService;
 import com.sg.superherosightings.service.SHSightingsSuperPowerService;
 import java.util.HashSet;
@@ -38,15 +39,14 @@ public class SHSightingsSuperHeroController {
 
     SHSightingsSuperHeroService superHeroService;
     SHSightingsSuperPowerService superPowerService;
-    SHSightingsOrganizationService orgService;
+    SHSightingsOrganizationDao organizationDao;
 
     @Inject
-    public SHSightingsSuperHeroController(SHSightingsSuperHeroService superHeroService, SHSightingsSuperPowerService superPowerService, SHSightingsOrganizationService orgService) {
+    public SHSightingsSuperHeroController(SHSightingsSuperHeroService superHeroService, SHSightingsSuperPowerService superPowerService, SHSightingsOrganizationDao organizationDao) {
         this.superHeroService = superHeroService;
         this.superPowerService = superPowerService;
-        this.orgService = orgService;
+        this.organizationDao = organizationDao;
     }
-
 
     @RequestMapping(value = "/heros", method = RequestMethod.GET)
     @ResponseBody
@@ -60,11 +60,17 @@ public class SHSightingsSuperHeroController {
         return superHeroService.retrieveSuperHeroById(id);
     }
 
-    @RequestMapping(value = "/addhero", method = RequestMethod.POST)
-    //@ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(value = "/hero", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public SuperHero createSuperHero(@Valid @RequestBody SuperHeroRequest superHeroReq) {
-        SuperHero superHero = new SuperHero();
+
+        SuperHero superHero;
+        if (superHeroReq.getSuperHeroId() == 0) {
+            superHero = new SuperHero();
+        } else {
+            superHero = superHeroService.retrieveSuperHeroById(superHeroReq.getSuperHeroId());
+        }
         superHero.setSuperName(superHeroReq.getSuperName());
         superHero.setDescription(superHeroReq.getDescription());
         superHero.setGender(superHeroReq.getGender());
@@ -78,11 +84,11 @@ public class SHSightingsSuperHeroController {
         Set<Organization> superHeroOrgs = new HashSet<>();
         tokens = superHeroReq.getOrgs().split(",");
         for (String token : tokens) {
-            superHeroOrgs.add(orgService.getOrganization(Long.parseLong(token)));
+            superHeroOrgs.add(organizationDao.getById(Long.parseLong(token)));
         }
         superHero.setSuperHeroPowers(superHeroPowers);
         superHero.setSuperHeroOrgs(superHeroOrgs);
-        return superHeroService.createSuperHero(superHero);
+        return superHeroService.saveSuperHero(superHero);
     }
 
     @RequestMapping(value = "/hero{id}", method = RequestMethod.PUT)
@@ -94,6 +100,7 @@ public class SHSightingsSuperHeroController {
     @RequestMapping(value = "/hero/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deleteSuperHero(@PathVariable("id") long id) {
+
         superHeroService.removeSuperHero(id);
     }
 }

@@ -11,10 +11,19 @@ package com.sg.superherosightings.model.request;
  */
 public class SightingRequest {
 
+    private long sightingId;
     private String location;
     private String superHeros;
     private String dateSighted;
     private String image;
+
+    public long getSightingId() {
+        return sightingId;
+    }
+
+    public void setSightingId(long sightingId) {
+        this.sightingId = sightingId;
+    }
 
     public String getLocation() {
         return location;

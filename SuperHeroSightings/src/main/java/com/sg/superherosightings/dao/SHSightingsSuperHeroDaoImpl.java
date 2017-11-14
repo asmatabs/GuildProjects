@@ -10,6 +10,7 @@ import com.sg.superherosightings.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 /**
  *
@@ -60,7 +61,20 @@ public class SHSightingsSuperHeroDaoImpl implements SHSightingsSuperHeroDao {
     public void delete(Long id) {
         try (Session session = HibernateUtil.getSession()) {
             tx = session.beginTransaction();
-            SuperHero hero = session.get(SuperHero.class, id);
+            SuperHero hero = getById(id);
+
+            Query query = session.createNativeQuery("DELETE FROM SuperHeroOrg WHERE SuperHeroId = :superHeroId");
+            query.setParameter("superHeroId", id);
+            query.executeUpdate();
+
+            query = session.createNativeQuery("DELETE FROM SuperHeroPowers WHERE SuperHeroId = :superHeroId");
+            query.setParameter("superHeroId", id);
+            query.executeUpdate();
+
+            query = session.createNativeQuery("DELETE FROM SightingHero WHERE SuperHeroId = :superHeroId");
+            query.setParameter("superHeroId", id);
+            query.executeUpdate();
+
             session.delete(hero);
             session.flush();
             tx.commit();

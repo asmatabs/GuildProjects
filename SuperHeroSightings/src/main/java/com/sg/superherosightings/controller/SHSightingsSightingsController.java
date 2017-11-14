@@ -91,11 +91,26 @@ public class SHSightingsSightingsController {
         return sightingsDao.getAll();
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Sighting getSightingById(@PathVariable("id") long id) {
+        return sightingsDao.getById(id);
+    }
+
     @RequestMapping(value = "/sighting", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public Sighting createSighting(@Valid @RequestBody SightingRequest sightingRequest) {
-        Sighting sighting = new Sighting();
+    public Sighting saveSighting(@Valid @RequestBody SightingRequest sightingRequest) {
+        
+        Sighting sighting;
+        if (sightingRequest.getSightingId() == 0)
+        {
+            sighting = new Sighting();
+        }
+        else{
+            sighting = sightingsDao.getById(sightingRequest.getSightingId());
+        }
+        
         sighting.setImage(sightingRequest.getImage());
         sighting.setDateSighted(LocalDate.parse(sightingRequest.getDateSighted(), DateTimeFormatter.ISO_DATE));
 
@@ -115,7 +130,8 @@ public class SHSightingsSightingsController {
         return sightingsDao.add(sighting);
     }
 
-    @RequestMapping(value = "/sighting/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.OK)
     public void deleteSighting(@PathVariable("id") long id) {
         sightingsDao.delete(id);
     }

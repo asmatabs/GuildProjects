@@ -31,11 +31,12 @@ public class Sighting {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sightingId;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "LocationId", referencedColumnName = "LocationId", insertable = true)
     private Location location;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER) 
+            //cascade = {CascadeType.ALL})
     @JoinTable(name = "SightingHero",
             joinColumns = @JoinColumn(name = "SightingId"),
             inverseJoinColumns = @JoinColumn(name = "SuperHeroId"))

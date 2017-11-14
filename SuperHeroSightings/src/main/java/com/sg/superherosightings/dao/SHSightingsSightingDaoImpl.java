@@ -26,6 +26,13 @@ public class SHSightingsSightingDaoImpl implements SHSightingsSightingDao {
     Transaction tx = null;
 
     @Override
+    public Sighting getById(Long id) {
+        try (Session session = HibernateUtil.getSession()) {
+            return session.get(Sighting.class, id);
+        }
+    }
+
+    @Override
     public List<Sighting> getByDate(LocalDate date) {
         try (Session session = HibernateUtil.getSession()) {
             Query query = session.createQuery("SELECT s FROM Sighting s WHERE s.dateSighted = :date");
@@ -40,7 +47,6 @@ public class SHSightingsSightingDaoImpl implements SHSightingsSightingDao {
         try (Session session = HibernateUtil.getSession()) {
             Query query = session.createQuery("SELECT s FROM Sighting s WHERE s.location.locationId = :locationId");
             query.setParameter("locationId", locationId);
-
             return query.list();
         }
     }
@@ -53,7 +59,6 @@ public class SHSightingsSightingDaoImpl implements SHSightingsSightingDao {
                     + "AND s.dateSighted = :date");
             query.setParameter("locationId", locationId);
             query.setParameter("date", date);
-
             return query.list();
         }
     }
@@ -83,10 +88,21 @@ public class SHSightingsSightingDaoImpl implements SHSightingsSightingDao {
     public void delete(long id) {
         try (Session session = HibernateUtil.getSession()) {
             tx = session.beginTransaction();
-            Sighting sighting = session.get(Sighting.class,
-                    id);
+            Sighting sighting = getById(id);
             session.delete(sighting);
-            session.flush();
+            tx.commit();
+        }
+    }
+
+    @Override
+    public void deleteByLocation(long id) {
+        try (Session session = HibernateUtil.getSession()) {
+            tx = session.beginTransaction();
+            List<Sighting> sightings;
+            sightings = getByLocation(id);
+            sightings.forEach((sighting) -> {
+                session.delete(sighting);
+            });
             tx.commit();
         }
     }

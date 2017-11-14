@@ -1,17 +1,16 @@
 $(document).ready(function () {
     $('#errorMessages').empty();
 
-    retrievelocations();
+    retrieveOrganizations();
 });
 
-function retrievelocations()
+function retrieveOrganizations()
 {
     $('#errorMessages').empty();
-    $('#locationsListing').empty();
     var content;
     $.ajax({
         type: 'GET',
-        url: 'locations/all',
+        url: 'organizations/all',
         cache: false,
         headers: {
             'Accept': 'application/json',
@@ -19,27 +18,24 @@ function retrievelocations()
         },
         'dataType': 'json',
         success: function (data) {
-            $.each(data, function (index, location) {
+            $.each(data, function (index, org) {
                 content += '<tr>';
-                content += '<td>' + location.name + '</td>';
-                content += '<td>' + location.description + '</td>';
-                content += '<td>' + location.address.street + '<br>' 
-                        + location.address.city + ', ' 
-                        + location.address.state + '<br>' 
-                        + location.address.country + ' '
-                        + location.address.postalCode + '<br>'
-                        + 'Lat: ' + location.address.latitude + '<br>'
-                        + 'Long: ' + location.address.longitude + '</td>';
+                content += '<td>' + org.name + '</td>';
+                content += '<td>' + org.description + '</td>';
+                content += '<td>' + org.address.street + '<br>'
+                        + org.address.city + ', '
+                        + org.address.state + '<br>'
+                        + org.address.country + ' '
+                        + org.address.postalCode + '</td>'
                 content += '<td>';
-                content += '<button onClick="editlocation( ' + location.locationId + ')">Edit</button>';
+                content += '<button onClick="editOrg( ' + org.orgId + ')">Edit</button>';
                 content += '</td>';
                 content += '<td>';
-                content += '<button onClick="confirmDeleteLocation(' + location.locationId + ')">Delete</button>';
+                content += '<button onClick="confirmDeleteOrg(' + org.orgId + ')">Delete</button>';
                 content += '</td>';
-
                 content += '</tr>';
             });
-            $('#locationsListing').append(content);
+            $('#orgsTable').append(content);
         },
         error: function () {
             $('#errorMessages')
@@ -50,24 +46,22 @@ function retrievelocations()
     });
 }
 
-function saveLocation()
+function saveOrg()
 {
-    var location = JSON.stringify({
-        locationId: $('#add-location_id').val(),
-        name: $('#add-location').val(),
-        description: $('#add-description').val(),
+    var org = JSON.stringify({
+        orgId: $('#add-org-id').val(),
+        name: $('#add-org').val(),
+        description: $('#add-org-description').val(),
         street: $('#add-address-street').val(),
         city: $('#add-address-city').val(),
         state: $('#add-address-state').val(),
         country: $('#add-address-country').val(),
-        postalCode: $('#add-address-postal').val(),
-        latitude: $('#add-address-latitude').val(),
-        longitude: $('#add-address-longitude').val()
+        postalCode: $('#add-address-postal').val()
     });
     $.ajax({
         type: 'PUT',
-        url: 'locations/location',
-        data: location,
+        url: 'organizations/org',
+        data: org,
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -86,27 +80,25 @@ function saveLocation()
 
 }
 
-function editlocation(id)
+function editOrg(id)
 {
     $.ajax({
         type: 'GET',
-        url: 'locations/' + id,
+        url: 'organizations/' + id,
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         'dataType': 'json',
-        success: function (location) {
-            $('#add-location_id').val(location.locationId);
-            $('#add-location').val(location.name);
-            $('#add-description').val(location.description);
-            $('#add-address-street').val(location.address.street);
-            $('#add-address-city').val(location.address.city);
-            $('#add-address-state').val(location.address.state);
-            $('#add-address-country').val(location.address.country);
-            $('#add-address-postal').val(location.address.postalCode);
-            $('#add-address-latitude').val(location.address.latitude);
-            $('#add-address-longitude').val(location.address.longitude);
+        success: function (org) {
+            $('#add-org-id').val(org.orgId);
+            $('#add-org').val(org.name);
+            $('#add-description').val(org.description);
+            $('#add-address-street').val(org.address.street);
+            $('#add-address-city').val(org.address.city);
+            $('#add-address-state').val(org.address.state);
+            $('#add-address-country').val(org.address.country);
+            $('#add-address-postal').val(org.address.postalCode);
         },
         error: function () {
             $('#errorMessages')
@@ -116,26 +108,25 @@ function editlocation(id)
         }
     });
 }
-
-var locationForDelete;
-function confirmDeleteLocation(locationId)
+var orgForDelete;
+function confirmDeleteOrg(orgId)
 {
-    locationForDelete = locationId;
-    $('#confirmlocationDelete').show();
+    orgForDelete = orgId;
+    $('#confirmOrgDelete').show();
 }
 
-function deletelocation()
+function deleteOrg()
 {
-    $('#confirmlocationDelete').hide();
-        $.ajax({
+    $('#confirmOrgDelete').hide();
+    $.ajax({
         type: 'DELETE',
-        url: 'locations/' + locationForDelete,
+        url: 'organizations/' + orgForDelete,
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         success: function () {
-            retrievelocations();
+            window.location.reload();
         },
         error: function () {
             $('#errorMessages')
@@ -144,17 +135,19 @@ function deletelocation()
                             .text('Error calling web service.  Please try again later.'));
         }
     });
+
+
 }
 
 function cancelDelete()
 {
-    $('#confirmlocationDelete').hide();
+    $('#confirmOrgDelete').hide();
 }
 
 function cancelSave()
 {
-    $('#add-location_id').val("");
-    $('#add-location').val("");
+    $('#add-org-id').val("");
+    $('#add-org').val("");
     $('#add-description').val("");
     $('#add-address-street').val("");
     $('#add-address-city').val("");

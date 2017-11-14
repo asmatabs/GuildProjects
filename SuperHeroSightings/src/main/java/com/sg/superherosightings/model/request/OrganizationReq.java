@@ -9,8 +9,8 @@ package com.sg.superherosightings.model.request;
  *
  * @author asmat
  */
-public class LocationRequest {
-    private long locationId;
+public class OrganizationReq {
+    private long orgId;
     private String name;
     private String description;
 
@@ -19,18 +19,15 @@ public class LocationRequest {
     private String state;
     private String country;
     private String postalCode;
-    private String latitude;
-    private String longitude; 
 
-    public long getLocationId() {
-        return locationId;
+    public long getOrgId() {
+        return orgId;
     }
 
-    public void setLocationId(long locationId) {
-        this.locationId = locationId;
+    public void setOrgId(long orgId) {
+        this.orgId = orgId;
     }
 
-    
     public String getName() {
         return name;
     }
@@ -87,20 +84,4 @@ public class LocationRequest {
         this.postalCode = postalCode;
     }
 
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-    
 }

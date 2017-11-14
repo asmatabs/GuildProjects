@@ -10,6 +10,7 @@ import com.sg.superherosightings.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 /**
  *
@@ -55,8 +56,20 @@ public class SHSightingsOrganizationDaoImpl implements SHSightingsOrganizationDa
     @Override
     public void delete(long id) {
         try (Session session = HibernateUtil.getSession()) {
-            Organization org = session.get(Organization.class, id);
+            tx = session.beginTransaction();
+            Organization org = getById(id);
             session.delete(org);
+            tx.commit();
+        } 
+    }
+     @Override
+    public void deleteSuperHeroOrgs(long id) {
+        try (Session session = HibernateUtil.getSession()) {
+            tx = session.beginTransaction();
+            Query query = session.createNativeQuery("DELETE FROM SuperHeroOrg WHERE OrgId = :orgId");
+            query.setParameter("orgId", id);
+            query.executeUpdate();
+            tx.commit();
         } 
     }
 }

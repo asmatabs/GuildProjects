@@ -10,11 +10,21 @@ package com.sg.superherosightings.model.request;
  * @author asmat
  */
 public class SuperHeroRequest {
+    
+    private long superHeroId;
     private String superName;
     private String description;
     private String gender;
     private String orgs;
     private String powers;
+
+    public long getSuperHeroId() {
+        return superHeroId;
+    }
+
+    public void setSuperHeroId(long superHeroId) {
+        this.superHeroId = superHeroId;
+    }
 
     public String getSuperName() {
         return superName;

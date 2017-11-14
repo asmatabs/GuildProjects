@@ -31,16 +31,18 @@ and open the template in the editor.
 
 #superhero-title, #sightings-title div{
     text-align: center;
-    padding: 30px 20px 100px 20px;
+    padding: 30px 20px 50px 20px;
 }
-
+#searchCriteria{
+    padding-bottom: 30px;
+}
 #editDeleteHero div{
     text-align: center;
 }
 
 #hero{
     text-align: center;
-    padding: 50px 20px 150px 20px;
+    padding: 50px 20px 50px 20px;
 }
 
 .img-circle {
@@ -55,6 +57,10 @@ and open the template in the editor.
   margin-left: 50%;
 }
 
+#map{
+    width : 500px;
+    height: 300px;
+}
 body {
   background-color: #999;
 }
@@ -74,3 +80,7 @@ body {
   width: auto;
 }
 
+#sightingDisplayDiv Button{
+    background-color: transparent;
+    border: none;
+}

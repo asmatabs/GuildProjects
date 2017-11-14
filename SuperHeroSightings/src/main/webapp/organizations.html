@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Company Contacts</title>
+        <title>Organizations</title>
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/styles.css"  rel="stylesheet">
@@ -10,7 +10,7 @@
         <div class="container-fluid">
 
             <div class="navbar">
-               <ul class="nav navbar-btn nav-tabs pull-right">
+                <ul class="nav navbar-btn nav-tabs pull-right">
                     <li role="presentation" ><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
                     <li role="presentation"><a href="superhero.html">Super Heros</a></li>
                     <li role="presentation"><a href="sightings.html">Sightings</a></li>
@@ -19,17 +19,11 @@
                 </ul>    
             </div>
 
-            <ul class="list-group" id="errorMessages"></ul>
-            <!--
-            Add a row to our container - this will hold the summary table and the new contact form.
-            -->
             <div class="row">
-                <!-- #2: Add a col to hold the summary table - have it take up half the row -->
                 <div class="col-md-6">
-                    <div id="contactTableDiv">
-                        <h2>Organizations</h2>
-
-                        <table id="orgTable" class="table table-hover">
+                    <div >
+                        <h2>Organizations</h2><br>
+                        <table id="orgsTable" class="table table-hover">
                             <tr>
                                 <th width="20%">Name</th>
                                 <th width="30%">Description</th>
@@ -40,166 +34,139 @@
                             <tbody id="contentRows"></tbody>
                         </table>
                     </div>
-<!--                    <div id="editFormDiv" >
-                        <h2>Edit Organization</h2>
+                </div> 
 
-                        <form class="form-horizontal" role="form" id="edit-form">
-                            <div class="form-group">
-                                <label for="edit-name" class="col-md-4 control-label">
-                                    Name:
-                                </label>
-
-                                <div class="col-md-8">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="edit-name"
-                                           placeholder="Name" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit-description" class="col-md-4 control-label">
-                                    Description:
-                                </label>
-
-                                <div class="col-md-8">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="edit-description"
-                                           placeholder="Description" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit-address" class="col-md-4 control-label">
-                                    Address: </label>
-
-                                <div class="col-md-8">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="edit-address"
-                                           placeholder="Address"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit-email" class="col-md-4 control-label">Email:</label>
-
-                                <div class="col-md-8">
-                                    <input type="email"
-                                           class="form-control"
-                                           id="edit-email"
-                                           placeholder="Email" required/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit-phone" class="col-md-4 control-label">Phone:</label>
-
-                                <div class="col-md-8">
-                                    <input type="tel"
-                                           class="form-control"
-                                           id="edit-phone"
-                                           placeholder="Phone"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-offset-4 col-md-4">
-                                    <input type="hidden" id="edit-contact-id">
-                                    <button type="button"
-                                            id="edit-cancel-button"
-                                            class="btn btn-default"
-                                            onclick="hideEditForm()">
-                                        Cancel
-                                    </button>
-                                </div>
-                                <div class="col-md-4">
-                                    <button type="button"
-                                            id="edit-button"
-                                            class="btn btn-default">
-                                        Update Contact
-                                    </button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>-->
-                </div> <!-- End col div -->
-                <!--
-                #4: Add col to hold the new contact form - have it take up the other half of the row
-                -->
                 <div class="col-md-6">
-                    <h2>Add New Organization</h2>
-
+                    <div class="col-lg-offset-2">
+                        <h3>Add / Edit </h3><br>
+                    </div>
                     <form class="form-horizontal" role="form" id="add-form">
                         <div class="form-group">
-                            <label for="add-name" class="col-md-4 control-label">
+                            <input type="hidden"
+                                   id="add-org-id"/>
+                            <label for="add-org" class="col-md-4 control-label">
                                 Name:
                             </label>
 
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input type="text"
                                        class="form-control"
-                                       id="add-name"
+                                       id="add-org"
                                        placeholder="Name" required/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="add-description" class="col-md-4 control-label">
+                            <label for="add-org-description" class="col-md-4 control-label">
                                 Description:
                             </label>
 
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input type="text"
                                        class="form-control"
-                                       id="add-description"
+                                       id="add-org-description"
                                        placeholder="Description" required/>
                             </div>
                         </div>
+                        <div class="col-md-offset-4">
+                            <h4>Address</h4>
+                        </div>
                         <div class="form-group">
-                            <label for="add-address" class="col-md-4 control-label">
-                                Address:</label>
+                            <label for="add-address-street" class="col-md-4 control-label">
+                                Street:</label>
 
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input type="text"
                                        class="form-control"
-                                       id="add-address"
-                                       placeholder="Address"/>
+                                       id="add-address-street"
+                                       placeholder="Street"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="add-email" class="col-md-4 control-label">Email:</label>
-
-                            <div class="col-md-8">
-                                <input type="email"
+                            <label for="add-address-city" class="col-md-4 control-label">
+                                City:</label>
+                            <div class="col-md-6">
+                                <input type="text"
                                        class="form-control"
-                                       id="add-email"
-                                       placeholder="Email" required/>
+                                       id="add-address-city"
+                                       placeholder="City"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="add-phone" class="col-md-4 control-label">Phone:</label>
-
-                            <div class="col-md-8">
-                                <input type="tel"
+                            <label for="add-address-state" class="col-md-4 control-label">
+                                State:</label>
+                            <div class="col-md-6">
+                                <input type="text"
                                        class="form-control"
-                                       id="add-phone"
-                                       placeholder="Phone"/>
+                                       id="add-address-state"
+                                       placeholder="State"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-address-country" class="col-md-4 control-label">
+                                Country:</label>
+
+                            <div class="col-md-6">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-address-country"
+                                       placeholder="Country"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="add-address-postal" class="col-md-4 control-label">
+                                Postal Code:</label>
+
+                            <div class="col-md-6">
+                                <input type="text"
+                                       class="form-control"
+                                       id="add-address-postal"
+                                       placeholder="Postal Code"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-4 col-md-8">
                                 <button type="button"
                                         id="add-button"
+                                        onclick="saveOrg()"
                                         class="btn btn-default">
-                                    Create Organization
+                                    Save
+                                </button>
+                                <button type="button"
+                                        id="add-cancel"
+                                        onclick="cancelSave()"
+                                        class="btn btn-default">
+                                    Cancel
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div> <!-- End col div -->
-            </div> <!-- End row div -->
+                </div>
+                <div class="modal" tabindex="-1" role="dialog" id="confirmOrgDelete">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Delete</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="false">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete the organization?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="deleteOrg()">Yes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cancelDelete()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <!-- #5: Placed at the end of the document so the pages load faster -->
+
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/bootstrap.js"></script>
-        <!--<script src="js/organization.js"></script>-->
+        <script src="js/organizations.js"></script>
     </body>
 </html>

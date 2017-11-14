@@ -19,4 +19,5 @@ public interface SHSightingsOrganizationDao {
     Organization add(Organization organization);
     Organization update(Organization organization);
     void delete(long id);
+    void deleteSuperHeroOrgs(long id);
 }

@@ -15,6 +15,7 @@ import java.util.List;
  */
 public interface SHSightingsSightingDao {
     
+    Sighting getById(Long id);
     List<Sighting> getAll();
     List<Sighting> getByDate(LocalDate date);
     List<Sighting> getByLocation(Long locationId);
@@ -24,4 +25,5 @@ public interface SHSightingsSightingDao {
     
     Sighting add(Sighting sighting);
     void delete(long id);
+    void deleteByLocation(long id);
 }

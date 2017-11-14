@@ -27,7 +27,7 @@ public class SHSightingsSuperHeroService {
         return superHeroDao.getAll();
     }
 
-    public SuperHero createSuperHero(SuperHero superHero) {
+    public SuperHero saveSuperHero(SuperHero superHero) {
         return superHeroDao.add(superHero);
     }
 

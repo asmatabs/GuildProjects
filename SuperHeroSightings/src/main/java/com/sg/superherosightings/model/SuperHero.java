@@ -7,6 +7,7 @@ package com.sg.superherosightings.model;
 
 import java.util.Objects;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -31,13 +32,13 @@ public class SuperHero {
     private String gender;
     private String image;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER) //, cascade = CascadeType.REMOVE)
     @JoinTable(name = "superheroorg",
             joinColumns = @JoinColumn(name = "SuperHeroId"),
             inverseJoinColumns = @JoinColumn(name = "OrgId"))
     Set<Organization> superHeroOrgs;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER) //, cascade = CascadeType.REMOVE)
     @JoinTable(name = "superheropowers",
             joinColumns = @JoinColumn(name = "SuperHeroId"),
             inverseJoinColumns = @JoinColumn(name = "SuperPowerId"))

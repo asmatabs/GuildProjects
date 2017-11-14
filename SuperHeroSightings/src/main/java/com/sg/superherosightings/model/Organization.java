@@ -5,6 +5,7 @@
  */
 package com.sg.superherosightings.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class Organization {
     private String name;
     private String description;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "AddressId", referencedColumnName = "AddressId", insertable = true, updatable = true, nullable = false)
     private Address address;
 
