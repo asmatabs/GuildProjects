@@ -6,7 +6,6 @@
 package com.sg.superherosightings.controller;
 
 import com.sg.superherosightings.dao.SHSightingsOrganizationDao;
-import com.sg.superherosightings.dao.SHSightingsSightingDao;
 import com.sg.superherosightings.model.Organization;
 import com.sg.superherosightings.model.SuperHero;
 import com.sg.superherosightings.model.SuperPower;

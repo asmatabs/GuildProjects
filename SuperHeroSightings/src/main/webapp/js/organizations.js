@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $('#errorMessages').empty();
-
     retrieveOrganizations();
 });
 
@@ -77,7 +76,6 @@ function saveOrg()
                             .text('Error calling web service.  Please try again later.'));
         }
     });
-
 }
 
 function editOrg(id)
@@ -135,8 +133,6 @@ function deleteOrg()
                             .text('Error calling web service.  Please try again later.'));
         }
     });
-
-
 }
 
 function cancelDelete()

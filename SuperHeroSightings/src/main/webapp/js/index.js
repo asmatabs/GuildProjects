@@ -20,7 +20,7 @@ function fillCarouselItems()
             $.each(data, function (index, sighting) {
 
                 content += '<div class="item';
-                if(index === 0)
+                if (index === 0)
                 {
                     content += ' active';
                 }
@@ -30,9 +30,9 @@ function fillCarouselItems()
                 content += '<h3>' + sighting.location.name + '</h3>';
                 content += '<p> Sighting Date: ' + sighting.dateSighted.dayOfMonth + ' ' + sighting.dateSighted.month + ', ' + sighting.dateSighted.year + '</p>';
                 content += '<p> Super Heros spotted: ';
-                $.each(sighting.superHero, function(index, hero){
+                $.each(sighting.superHero, function (index, hero) {
                     content += hero.superName;
-                    if( index !== (sighting.superHero.length -1))
+                    if (index !== (sighting.superHero.length - 1))
                     {
                         content += " , ";
                     }

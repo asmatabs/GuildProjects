@@ -7,19 +7,16 @@ $(document).ready(function () {
 function searchSightings()
 {
     var criteria = $('#searchSighting').val();
-    if (criteria == 1)
-    {
+    if (criteria == 1) {
         retrieveAllSightings();
 
-    } else if (criteria == 2)
-    {
+    } else if (criteria == 2) {
 //        Search by super hero
         $('#sightingDisplayDiv').hide();
         $('#searchLocationForm').hide();
         $('#searchSuperHeroForm').show();
         retrieveSuperHeros();
-    } else
-    {
+    } else {
 //        Search By location and date
         $('#sightingDisplayDiv').hide();
         $('#searchSuperHeroForm').hide();
@@ -93,7 +90,7 @@ function createSighting()
     $('#searchLocationForm').hide();
     $('#searchCriteria').hide();
     $('#addEditFormDiv').show();
-    
+
     $('#ae-sighting-super-heros').empty();
     $('#ae-sighting-location').empty();
     $('#ae-sighting-date').val('');
@@ -104,34 +101,34 @@ function createSighting()
 
 function saveSighting()
 {
-        var superheros = $('#ae-sighting-super-heros').val();
-        $.ajax({
-            type: 'POST',
-            url: 'sighting/sighting',
-            cache: false,
-            data: JSON.stringify({
-                sightingId: $('#ae-sighting-id').val(),
-                location: $('#ae-sighting-location').val(),
-                superHeros: superheros.toString(),
-                dateSighted: $('#ae-sighting-date').val(),
-                image: $('#ae-sighting-image').val()
-            }),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            'dataType': 'json',
-            success: function (data) {
-                retrieveAllSightings();
-            },
-            error: function () {
-                $('#errorMessages')
-                        .append($('<li>')
-                                .attr({class: 'list-group-item list-group-item-danger'})
-                                .text('Error calling web service.  Please try again later.'));
-            }
-        });
-    //}
+    var superheros = $('#ae-sighting-super-heros').val();
+    $.ajax({
+        type: 'POST',
+        url: 'sighting/sighting',
+        cache: false,
+        data: JSON.stringify({
+            sightingId: $('#ae-sighting-id').val(),
+            location: $('#ae-sighting-location').val(),
+            superHeros: superheros.toString(),
+            dateSighted: $('#ae-sighting-date').val(),
+            image: $('#ae-sighting-image').val()
+        }),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        'dataType': 'json',
+        success: function (data) {
+            retrieveAllSightings();
+        },
+        error: function () {
+            $('#errorMessages')
+                    .append($('<li>')
+                            .attr({class: 'list-group-item list-group-item-danger'})
+                            .text('Error calling web service.  Please try again later.'));
+        }
+    });
+
 }
 
 function searchByLocationAndDate()
@@ -224,14 +221,12 @@ function showSightings(data)
 
     $.each(data, function (index, sighting) {
         content += '<tr>';
-        //content += '<td hidden>' + sighting.sightingId + '</td>';
         content += '<td>' + sighting.location.name + '</td>';
         content += '<td>' + sighting.dateSighted.dayOfMonth + ' ' + sighting.dateSighted.month + ', ' + sighting.dateSighted.year + '</td>';
         content += '<td>';
         $.each(sighting.superHero, function (index, hero) {
             content += hero.superName;
-            if (index !== (sighting.superHero.length - 1))
-            {
+            if (index !== (sighting.superHero.length - 1)){
                 content += " , ";
             }
         });
@@ -272,8 +267,7 @@ function editSighting(sightingId)
             $('#ae-sighting-id').val(sighting.sightingId);
             loadLocationForEdit(sighting);
             loadSuperHeroForEdit(sighting);
-            //var d = new Date();
-            var date =  sighting.dateSighted.year + '-' + sighting.dateSighted.monthValue + '-' + sighting.dateSighted.dayOfMonth;
+            var date = sighting.dateSighted.year + '-' + sighting.dateSighted.monthValue + '-' + sighting.dateSighted.dayOfMonth;
             $('#ae-sighting-date').val(date);
             $('#ae-sighting-image').val(sighting.image);
 
@@ -300,11 +294,9 @@ function loadLocationForEdit(sighting)
         'dataType': 'json',
         success: function (data) {
             $.each(data, function (index, location) {
-                if (sighting.location.locationId == location.locationId)
-                {
+                if (sighting.location.locationId == location.locationId) {
                     content += '<option selected value=' + location.locationId + '>' + location.name + '</option>';
-                } else
-                {
+                } else {
                     content += '<option value=' + location.locationId + '>' + location.name + '</option>';
                 }
             });
@@ -337,11 +329,9 @@ function loadSuperHeroForEdit(sighting)
                 heros.push(hero.superHeroId);
             });
             $.each(data, function (index, superhero) {
-                if ($.inArray(superhero.superHeroId, heros) != -1)
-                {
+                if ($.inArray(superhero.superHeroId, heros) != -1) {
                     content += '<option selected value=' + superhero.superHeroId + '>' + superhero.superName + '</option>';
-                } else
-                {
+                } else {
                     content += '<option value=' + superhero.superHeroId + '>' + superhero.superName + '</option>';
                 }
             });

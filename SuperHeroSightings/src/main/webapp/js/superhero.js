@@ -1,10 +1,6 @@
-/* global hero */
 var hero;
 $(document).ready(function () {
     $('#errorMessages').empty();
-
-
-
     showSuperHeros();
 });
 
@@ -44,7 +40,6 @@ function createSuperHero()
 
     //Retrieve Org list 
     retrieveOrgList();
-
     //Retrieve super power list 
     retrievePowerList();
 }
@@ -120,7 +115,6 @@ function editSuperHero()
 
     retrieveOrgList();
     retrievePowerList();
-
 }
 function confirmDeleteSuperHero()
 {
@@ -152,85 +146,41 @@ function cancelDelete()
 {
     $('#confirmDelete').hide();
     window.location.reload();
-
 }
 function saveHero()
 {
-//    if (isFinite(hero))
-//    {
-        var orgs  = $('#superhero-org-div').val();
-        var powers = $('#superhero-power-div').val();
-        
-        $.ajax({
-            type: 'PUT',
-            url: 'superhero/hero',
-            cache: false,
-            data: JSON.stringify({
-                superheroId: $('#super-hero-id').val(),
-                superName: $('#super-hero-name').val(),
-                description: $('#super-hero-desc').val(),
-                gender: $('#super-hero-gender').val(),
-                orgs: orgs.toString(),
-                powers: powers.toString(),
-                image: $('#super-hero-image').val()
-            }),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            'dataType': 'json',
-            success: function (data) {
-                $('#addEditHeroDiv').hide();
-                showSuperHeros();
-            },
-            error: function () {
-                $('#errorMessages')
-                        .append($('<li>')
-                                .attr({class: 'list-group-item list-group-item-danger'})
-                                .text('Error calling web service.  Please try again later.'));
-            }
-        });
-//    } else
-//    {
-//        //Add mode
-//        var orgs = [];
-//        $('#orgDiv').children("input:checked").map(function () {
-//            orgs.push(this.name);
-//        });
-//
-//        var powers = [];
-//        $('#powerDiv').children("input:checked").map(function () {
-//            powers.push(this.name);
-//        });
-//
-//        $.ajax({
-//            type: 'POST',
-//            url: 'superhero/addhero',
-//            cache: false,
-//            data: JSON.stringify({
-//                superName: $('#super-hero-name').val(),
-//                description: $('#super-hero-desc').val(),
-//                gender: $('#super-hero-gender').val(),
-//                orgs: orgs.toString(),
-//                powers: powers.toString()
-//            }),
-//            headers: {
-//                'Accept': 'application/json',
-//                'Content-Type': 'application/json'
-//            },
-//            'dataType': 'json',
-//            success: function (data) {
-//                hideAddForm();
-//                showSuperHeros();
-//            },
-//            error: function () {
-//                $('#errorMessages')
-//                        .append($('<li>')
-//                                .attr({class: 'list-group-item list-group-item-danger'})
-//                                .text('Error calling web service.  Please try again later.'));
-//            }
-//        });
-//    }
+    var orgs = $('#superhero-org-div').val();
+    var powers = $('#superhero-power-div').val();
+
+    $.ajax({
+        type: 'PUT',
+        url: 'superhero/hero',
+        cache: false,
+        data: JSON.stringify({
+            superheroId: $('#super-hero-id').val(),
+            superName: $('#super-hero-name').val(),
+            description: $('#super-hero-desc').val(),
+            gender: $('#super-hero-gender').val(),
+            orgs: orgs.toString(),
+            powers: powers.toString(),
+            image: $('#super-hero-image').val()
+        }),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        'dataType': 'json',
+        success: function (data) {
+            $('#addEditHeroDiv').hide();
+            showSuperHeros();
+        },
+        error: function () {
+            $('#errorMessages')
+                    .append($('<li>')
+                            .attr({class: 'list-group-item list-group-item-danger'})
+                            .text('Error calling web service.  Please try again later.'));
+        }
+    });
 }
 
 function hideAddForm()
@@ -247,12 +197,10 @@ function fillSuperHeros(data) {
     $.each(data, function (index, hero) {
         var name = hero.superName;
         var row = '';
-        if ((index + 1) % 3 === 0)
-        {
+        if ((index + 1) % 3 === 0) {
             row += '<div class="row">';
         }
-        if (hero.image === null)
-        {
+        if (hero.image === null) {
             hero.image = "http://evanweppler.com/wp-content/uploads/2011/10/super.jpg";
         }
         row += '<div class="col-lg-4" id="hero">';
@@ -260,8 +208,7 @@ function fillSuperHeros(data) {
         row += '<a href="#" onclick="gethero(' + (hero.superHeroId) + ')">' + name + '</a';
         row += name;
         row += '</div>';
-        if ((index + 1) % 3 === 0)
-        {
+        if ((index + 1) % 3 === 0) {
             row += '</div>';
         }
         contentGrid.append(row);
@@ -286,8 +233,7 @@ function gethero(num)
             $('#showhero').show();
             $('#showhero').empty();
 
-            if (hero.image === null)
-            {
+            if (hero.image === null) {
                 hero.image = "http://evanweppler.com/wp-content/uploads/2011/10/super.jpg";
             }
 
@@ -302,16 +248,14 @@ function gethero(num)
             content += '<p> Organizations: ';
             $.each(data.superHeroOrgs, function (index, heroOrg) {
                 content += heroOrg.name;
-                if (index !== (data.superHeroOrgs.length - 1))
-                {
+                if (index !== (data.superHeroOrgs.length - 1)) {
                     content += " , ";
                 }
             });
             content += '<p> Powers: ';
             $.each(data.superHeroPowers, function (index, heroPower) {
                 content += heroPower.power;
-                if (index !== (data.superHeroPowers.length - 1))
-                {
+                if (index !== (data.superHeroPowers.length - 1)) {
                     content += " , ";
                 }
             });
